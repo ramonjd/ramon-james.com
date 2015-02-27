@@ -1,0 +1,8 @@
+{
+  "scripts" : [
+    "/js/app.min.js"
+  ],
+  "styles" : [
+    "/css/base.min.css"
+  ]
+}

@@ -1,0 +1,19 @@
+doctype html
+html(lang='en', ng-app='ramonJames')
+  head
+    title
+    base(href='/')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  body
+    header
+      h1 Header
+      nav
+    section
+      div.view-animate-container
+        //div.view-animate(ng-view='', )
+    each val in scripts
+      script(src=val, type='text/javascript')
+    each val in styles
+      link(rel='stylesheet', href=val)

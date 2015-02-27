@@ -3,6 +3,3 @@
 node_modules
 bower_components
 dist
-src/css
-src/*.html
-src/*.php
