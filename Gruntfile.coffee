@@ -1,8 +1,7 @@
 module.exports = (grunt)->
+  
   # endpoints for the mock json
-  endpoints =
-    '/wordpress/' : 'api/root.json'
-    '/wordpress/posts/' : 'api/posts.json'
+  endpoints = require './config/api.endpoints'
     
   grunt.initConfig(
     pkg: grunt.file.readJSON('package.json')
@@ -57,6 +56,32 @@ module.exports = (grunt)->
             require './config/dev.locals.json'
         files:
           '.tmp/index.html' : 'src/jade/index.jade'
+      views:
+        options:
+          client: false
+          pretty: true
+        files: [
+          {
+              cwd: 'src/jade/views'
+              src: '**/*.jade',
+              dest: '.tmp/templates',
+              expand: true,
+              ext: '.tpl.html'
+          }
+        ]
+      partials:
+        options:
+          client: false
+          pretty: true
+        files: [
+          {
+              cwd: 'src/jade/partials'
+              src: '**/*.jade',
+              dest: '.tmp/templates',
+              expand: true,
+              ext: '.tpl.html'
+          }
+        ]
     less:
       dev:
         files:
@@ -64,18 +89,25 @@ module.exports = (grunt)->
       dist:
         files:
           '' : ''
-    watch: {}
+    watch:
+      html:
+        files: 'src/jade/**/*.jade'
+        tasks: ['jade', 'jade:views', 'jade:partials']
+      locals:
+        files: 'config/*.locals.json'
+        tasks: ['jade']
+      coffee:
+        files: 'src/coffee/*.coffee'
+        tasks: ['coffee:dev']
+      less:
+        files: 'src/less/*.less'
+        tasks: ['less:dev']
     )
   
   #
   # load modules
   #
-  grunt.loadNpmTasks 'grunt-contrib-jade'
-  grunt.loadNpmTasks 'grunt-contrib-clean'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-connect'
-  grunt.loadNpmTasks 'grunt-contrib-less'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
+  require('load-grunt-tasks')(grunt)
   
   #
   # register tasks
@@ -85,6 +117,8 @@ module.exports = (grunt)->
     'less:dev'
     'coffee:dev'
     'jade'
+    'jade:views'
+    'jade:partials'
   ]
   grunt.registerTask 'server', [
     'connect'
