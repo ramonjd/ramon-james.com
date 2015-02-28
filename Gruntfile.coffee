@@ -2,7 +2,15 @@ module.exports = (grunt)->
   
   # endpoints for the mock json
   endpoints = require './config/api.endpoints'
-    
+  
+  # dev local variables
+  devLocals = require './config/dev.locals.json'
+  
+  # rewrite middleware
+  modRewrite = require 'connect-modrewrite'
+  mountFolder = (connect, dir) ->
+    connect.static(require('path').resolve(dir))
+  
   grunt.initConfig(
     pkg: grunt.file.readJSON('package.json')
     #
@@ -29,14 +37,22 @@ module.exports = (grunt)->
       dev:
         options:
           port: grunt.option('port') || 3000
-          base: ['.tmp', './']
+          middleware: (connect)->
+            middlewares = [
+              modRewrite([
+                '!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.jpg$ /index.html [L]'
+              ])
+              mountFolder connect, '.tmp'
+              mountFolder connect, 'src'
+              mountFolder connect, './'
+            ]
       # https://blog.gaya.ninja/articles/static-mockup-data-endpoints-connect/
       api:
         options:
           port: 8080
           hostname: 'localhost'
           middleware: (connect, options, middlewares)->
-            cb = (req, res, next)->
+            apiFunc = (req, res, next)->
               res.setHeader 'Content-Type', 'application/json'
               match = false
               fileToRead = ''
@@ -46,14 +62,14 @@ module.exports = (grunt)->
                   fileToRead = endpoints[url]
               return next() if match is false
               res.end grunt.file.read(fileToRead)
-            middlewares.push cb
+            middlewares.push apiFunc
             middlewares
     jade:
       compile:
         options:
           pretty: true
           data: (dest, src)->
-            require './config/dev.locals.json'
+            devLocals
         files:
           '.tmp/index.html' : 'src/jade/index.jade'
       views:
@@ -97,7 +113,7 @@ module.exports = (grunt)->
         files: 'config/*.locals.json'
         tasks: ['jade']
       coffee:
-        files: 'src/coffee/*.coffee'
+        files: 'src/coffee/**/*.coffee'
         tasks: ['coffee:dev']
       less:
         files: 'src/less/*.less'

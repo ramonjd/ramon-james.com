@@ -1,16 +1,83 @@
 // fonts
 //@import url(http://fonts.googleapis.com/css?family=Cabin);
 //@import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700);
+// imports
+@import '_variables.less';
+* {
+  margin:0;
+  padding:0;
+}
 
-// bootstrap
-// @import 'bootstrap/bootstrap.less';
-
-// custom
-
-@base-bg-color:#eee;
-@base-link-color:#ddd;
-@base-h1-color:#555;
-@primary-color:#fec027;
-//@font-sans-serif:'Cabin', 'Arial', sans-serif;
-//@font-serif:'Merriweather', 'Times New Roman', serif;
-
+ body {
+  background-color: #fff;
+}
+header,
+section,
+article,
+main,
+nav,
+footer {
+  display: block;
+}
+header {
+  background-color: #000;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+main {
+  height:2000px;
+  overflow-x: hidden;
+}
+section {
+  .bgc {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+  .slide-container {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    .slide-content {
+      max-width: 450px;
+      margin: -150px auto 0 auto;
+      display: table-cell;
+      vertical-align: middle;
+      color: #ebebeb;
+      padding: 0 8%;
+      text-align: center;
+    }
+  }
+  &.slide {
+    height:100%;
+  }
+}
+#slide-1 {
+  .bgc {
+      background-image:url('/img/dummy-1.jpg')
+  }
+  .slide-content {
+    font-size:5rem;
+    h1 {
+      color:#fff;
+    }  
+  }
+}
+footer {
+  background-color: #000;
+  z-index:1000;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;  
+}

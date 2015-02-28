@@ -2,11 +2,5 @@ RamonJames = angular.module 'ramonJames', [
   'ngRoute'
   'ngAnimate'
   'ngSanitize'
+  'sn.skrollr'
 ]
-###
-RamonJames.config [
-  '$routeProvider'
-  '$locationProvider'
-], ($routeProvider, $locationProvider)->
-  return
-###
