@@ -1,3 +1,69 @@
-{
-  "title" : "posts"
-}
+[{
+  "ID": 1,
+  "title": "Hello world!",
+  "status": "publish",
+  "type": "post",
+  "author": {
+    "ID": 1,
+    "username": "ramonjd",
+    "name": "ramonjd",
+    "first_name": "",
+    "last_name": "",
+    "nickname": "ramonjd",
+    "slug": "ramonjd",
+    "URL": "",
+    "avatar": "",
+    "description": "",
+    "registered": "2015-02-26T13:24:58+00:00",
+    "meta": {
+      "links": {
+        "self": "http:\/\/ramon-james.com\/wordpress\/wp-json\/users\/1",
+        "archives": "http:\/\/ramon-james.com\/wordpress\/wp-json\/users\/1\/posts"
+      }
+    }
+  },
+  "content": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!<\/p>\n",
+  "parent": 0,
+  "link": "http:\/\/ramon-james.com\/wordpress\/hello-world\/",
+  "date": "2015-02-26T13:24:58+00:00",
+  "modified": "2015-02-26T13:24:58+00:00",
+  "format": "standard",
+  "slug": "hello-world",
+  "guid": "http:\/\/www.ramon-james.com\/wordpress\/?p=1",
+  "excerpt": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!<\/p>\n",
+  "menu_order": 0,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "date_tz": "UTC",
+  "date_gmt": "2015-02-26T13:24:58+00:00",
+  "modified_tz": "UTC",
+  "modified_gmt": "2015-02-26T13:24:58+00:00",
+  "meta": {
+    "links": {
+      "self": "http:\/\/ramon-james.com\/wordpress\/wp-json\/posts\/1",
+      "author": "http:\/\/ramon-james.com\/wordpress\/wp-json\/users\/1",
+      "collection": "http:\/\/ramon-james.com\/wordpress\/wp-json\/posts",
+      "replies": "http:\/\/ramon-james.com\/wordpress\/wp-json\/posts\/1\/comments",
+      "version-history": "http:\/\/ramon-james.com\/wordpress\/wp-json\/posts\/1\/revisions"
+    }
+  },
+  "featured_image": null,
+  "terms": {
+    "category": [{
+      "ID": 1,
+      "name": "Uncategorised",
+      "slug": "uncategorised",
+      "description": "",
+      "parent": null,
+      "count": 1,
+      "link": "http:\/\/ramon-james.com\/wordpress\/category\/uncategorised\/",
+      "meta": {
+        "links": {
+          "collection": "http:\/\/ramon-james.com\/wordpress\/wp-json\/taxonomies\/category\/terms",
+          "self": "http:\/\/ramon-james.com\/wordpress\/wp-json\/taxonomies\/category\/terms\/1"
+        }
+      }
+    }]
+  }
+}]

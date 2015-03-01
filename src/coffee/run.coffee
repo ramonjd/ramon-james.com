@@ -1,4 +1,3 @@
-RamonJames.run ['snSkrollr', (snSkrollr) ->
-  snSkrollr.init()
+RamonJames.run [() ->
   return
   ]

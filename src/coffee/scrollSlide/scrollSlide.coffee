@@ -1,27 +1,17 @@
-RamonJames.provider(
-  'scrollSlide', [
-    ()->
-      elem = undefined
-      @setWindowHeight = (h)->
-        console.log 'serv h', h
-        if elem
-          elem.css 'height', h + 'px'
-      @$get = ()->
-        setElem : (element)->
-          elem = element
-      return
-  ])
-  .directive('scrollSlidePanel', [
+RamonJames.directive('scrollSlide', [
     '$window'
-    'scrollSlide'
     'snSkrollr'
-    ($window, scrollSlide, snSkrollr)->
+    ($window, snSkrollr)->
+      setElementHeight = (elem, h)->
+        elem.css 'height', h + 'px'
+        elem
       scrollSlideObj =
         restrict : 'A'
         replace : false
         link : ($scope, $element, $attrs)->
-          $element.css 'height', window.innerHeight + 'px'
-          scrollSlide.setElem $element
+          $scope.$on 'windowHeight', (e, data)->
+            setElementHeight $element, data
+          setElementHeight $element, $window.innerHeight
           snSkrollr.refresh()
           return
   ])
