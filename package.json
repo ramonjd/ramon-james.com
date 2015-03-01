@@ -4,7 +4,7 @@
   "description": "Site code for ramon-james.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
@@ -26,9 +26,7 @@
     "grunt-contrib-jade": "~0.14.1",
     "grunt-contrib-coffee": "~0.13.0",
     "load-grunt-tasks": "~3.1.0",
-    "connect-modrewrite": "~0.7.11"
-  },
-    "scripts": {
-    "postinstall": "bower install"
+    "connect-modrewrite": "~0.7.11",
+    "grunt-contrib-uglify": "~0.8.0"
   }
 }

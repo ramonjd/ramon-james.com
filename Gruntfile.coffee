@@ -64,6 +64,18 @@ module.exports = (grunt)->
               res.end grunt.file.read(fileToRead)
             middlewares.push apiFunc
             middlewares
+    copy:
+      dist:
+        files: [
+          {
+            expand:true
+            cwd: 'src/img/'
+            src: [
+              '**'
+            ]
+            dest: 'dist/img/'
+          }
+        ]
     jade:
       compile:
         options:
@@ -103,8 +115,15 @@ module.exports = (grunt)->
         files:
           '.tmp/css/base.css' : 'src/less/base.less'
       dist:
+        options:
+          compress: true
         files:
-          '' : ''
+          'dist/css/base.min.css' : 'src/less/base.less'
+    uglify:
+      options:
+        mangle: false
+      dist:
+        files: 'dist/js/app.min.js': devLocals.scripts
     watch:
       html:
         files: 'src/jade/**/*.jade'

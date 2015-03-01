@@ -3,7 +3,7 @@ RamonJames.directive('scrollSlide', [
     'snSkrollr'
     ($window, snSkrollr)->
       setElementHeight = (elem, h)->
-        elem.css 'height', h + 'px'
+        elem.css 'height', h - 50 + 'px'
         elem
       scrollSlideObj =
         restrict : 'A'

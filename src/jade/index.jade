@@ -6,11 +6,28 @@ html(lang='en', ng-app='ramonJames')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    link(rel='icon', type='image/png', href='img/favicon.png')
+    link(rel='profile', href='http://microformats.org/profile/hcard')
     each val in styles
       link(rel='stylesheet', href=val)
   body(ng-controller='MainController')
     main.view-animate-container
       div.view-animate(ng-view='')
-    footer    
+    footer
+      div
+        p.copy
+          span.org &copy;
+          a(href='/') Ramon James Ltd
+          span.date #{new Date().getFullYear()}
+        nav
+          ul
+            li
+              a(href='/') Blog
+            li
+              a(href='/') About
+            li
+              a(href='/') Ideas for you
+            li
+              a(href='/') Contact
     each val in scripts
       script(src=val, type='text/javascript')
