@@ -5,12 +5,11 @@
     "/bower_components/angular-route/angular-route.js",
     "/bower_components/angular-animate/angular-animate.js",
     "/bower_components/angular-sanitize/angular-sanitize.js",
-    "/bower_components/angular-skrollr/dist/angular-skrollr.js",
     "/js/app.js",
-    "/js/config.js",
-    "/js/run.js",
+    "/js/constants.js",
     "/js/MainController.js",
     "/js/PageController.js",
+    "/js/skrollr.js",
     "/js/scrollSlide.js"
     
   ],

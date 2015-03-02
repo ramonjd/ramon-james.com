@@ -1,7 +1,9 @@
-RamonJames.directive('scrollSlide', [
+'use strict'
+angular.module('ramonjames')
+  .directive('scrollSlide', [
     '$window'
-    'snSkrollr'
-    ($window, snSkrollr)->
+    'rjSkrollr'
+    ($window, rjSkrollr)->
       setElementHeight = (elem, h)->
         elem.css 'height', h - 50 + 'px'
         elem
@@ -12,6 +14,6 @@ RamonJames.directive('scrollSlide', [
           $scope.$on 'windowHeight', (e, data)->
             setElementHeight $element, data
           setElementHeight $element, $window.innerHeight
-          snSkrollr.refresh()
+          rjSkrollr.refresh()
           return
   ])

@@ -36,7 +36,7 @@ module.exports = (grunt)->
     connect:
       dev:
         options:
-          port: grunt.option('port') || 3000
+          port: grunt.option('port') || 8000
           middleware: (connect)->
             middlewares = [
               modRewrite([
@@ -164,6 +164,9 @@ module.exports = (grunt)->
   grunt.registerTask 'dev', [
   ]
   grunt.registerTask 'dist', [
+    'uglify:dist'
+    'less:dist'
+    'copy:dist'
   ]
   grunt.registerTask 'default', [
     'compile'

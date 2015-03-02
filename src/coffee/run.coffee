@@ -1,3 +1,0 @@
-RamonJames.run [() ->
-  return
-  ]
