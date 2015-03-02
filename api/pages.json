@@ -1,0 +1,53 @@
+[{
+  "ID": 2,
+  "title": "Sample Page",
+  "status": "publish",
+  "type": "page",
+  "author": {
+    "ID": 1,
+    "username": "ramonjd",
+    "name": "ramonjd",
+    "first_name": "",
+    "last_name": "",
+    "nickname": "ramonjd",
+    "slug": "ramonjd",
+    "URL": "",
+    "avatar": "",
+    "description": "",
+    "registered": "2015-02-26T13:24:58+00:00",
+    "meta": {
+      "links": {
+        "self": "http:\/\/ramon-james.com\/wordpress\/wp-json\/users\/1",
+        "archives": "http:\/\/ramon-james.com\/wordpress\/wp-json\/users\/1\/posts"
+      }
+    }
+  },
+  "content": "<p>This is an example page. It&#8217;s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:<\/p>\n<blockquote><p>Hi there! I&#8217;m a bike messenger by day, aspiring actor by night, and this is my blog. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin&#8217; caught in the rain.)<\/p><\/blockquote>\n<p>&#8230;or something like this:<\/p>\n<blockquote><p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.<\/p><\/blockquote>\n<p>As a new WordPress user, you should go to <a href=\"http:\/\/www.ramon-james.com\/wordpress\/wp-admin\/\">your dashboard<\/a> to delete this page and create new pages for your content. Have fun!<\/p>\n",
+  "parent": 0,
+  "link": "http:\/\/ramon-james.com\/wordpress\/sample-page\/",
+  "date": "2015-02-26T13:24:58+00:00",
+  "modified": "2015-02-26T13:24:58+00:00",
+  "format": "standard",
+  "slug": "sample-page",
+  "guid": "http:\/\/www.ramon-james.com\/wordpress\/?page_id=2",
+  "excerpt": "<p>This is an example page. It&#8217;s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this: Hi there! I&#8217;m a bike messenger &hellip; <a href=\"http:\/\/ramon-james.com\/wordpress\/sample-page\/\" class=\"more-link\">Continue reading <span class=\"screen-reader-text\">Sample Page<\/span><\/a><\/p>\n",
+  "menu_order": 0,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "date_tz": "UTC",
+  "date_gmt": "2015-02-26T13:24:58+00:00",
+  "modified_tz": "UTC",
+  "modified_gmt": "2015-02-26T13:24:58+00:00",
+  "meta": {
+    "links": {
+      "self": "http:\/\/ramon-james.com\/wordpress\/wp-json\/pages\/sample-page",
+      "author": "http:\/\/ramon-james.com\/wordpress\/wp-json\/users\/1",
+      "collection": "http:\/\/ramon-james.com\/wordpress\/wp-json\/pages",
+      "replies": "http:\/\/ramon-james.com\/wordpress\/wp-json\/pages\/2\/comments",
+      "version-history": "http:\/\/ramon-james.com\/wordpress\/wp-json\/pages\/2\/revisions"
+    }
+  },
+  "featured_image": null,
+  "terms": []
+}]
