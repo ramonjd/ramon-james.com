@@ -81,6 +81,15 @@ module.exports = (grunt)->
             ]
             dest: 'dist/img/'
           }
+          {
+            expand:true
+            filter:'isFile'
+            flatten:true
+            src: [
+              'src/.htaccess'
+            ]
+            dest: 'dist/'
+          }
         ]
     html2js:
       options:
@@ -189,6 +198,7 @@ module.exports = (grunt)->
   grunt.registerTask 'dev', [
   ]
   grunt.registerTask 'dist', [
+    'compile'
     'clean:dist'
     'uglify:dist'
     'less:dist'

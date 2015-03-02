@@ -27,7 +27,7 @@ angular.module('ramonjames', [
     })
     
     # nice urls thank you
-    $locationProvider.html5Mode true
+    $locationProvider.html5Mode(true).hashPrefix '!'
     
     return
 ])
