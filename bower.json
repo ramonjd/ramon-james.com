@@ -19,7 +19,6 @@
     "angular-sanitize": "~1.3.14",
     "angular-animate": "~1.3.14",
     "skrollr": "~0.6.29",
-    "angular-skrollr": "git://github.com/ramonjd/angular-skrollr.git#v0.0.6",
     "angular": "~1.3.14"
   },
   "devDependencies": {
