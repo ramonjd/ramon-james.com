@@ -1,5 +1,5 @@
 doctype html
-html(lang='en', ng-app='ramonJames')
+html(lang='en', ng-app='ramonjames')
   head
     title
     base(href='/')
@@ -10,8 +10,8 @@ html(lang='en', ng-app='ramonJames')
     link(rel='profile', href='http://microformats.org/profile/hcard')
     each val in styles
       link(rel='stylesheet', href=val)
-  body(ng-controller='MainController')
-    main.view-animate-container
+  body
+    main#main.view-animate-container(ng-controller='MainController')
       div.view-animate(ng-view='')
     footer
       div
@@ -22,12 +22,11 @@ html(lang='en', ng-app='ramonJames')
         nav
           ul
             li
-              a(href='/') Blog
+              a(href='/about') About
             li
-              a(href='/') About
-            li
-              a(href='/') Ideas for you
-            li
-              a(href='/') Contact
+              a(href='mailto:hello@ramon-james.com') Contact
+    if vendor
+      each val in vendor
+        script(src=val, type='text/javascript')
     each val in scripts
       script(src=val, type='text/javascript')

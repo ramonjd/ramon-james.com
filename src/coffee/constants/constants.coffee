@@ -1,5 +1,8 @@
 'use strict'
 angular.module('ramonjames')
   .constant 'URLS', {
-    'test' : '123'
+    'main' : '/wordpress/wp-json/'
+    'home' : '/wordpress/wp-json/pages/home'
+    'about' : '/wordpress/wp-json/pages/about'
+    'posts' : '/wordpress/wp-json/posts'
   }

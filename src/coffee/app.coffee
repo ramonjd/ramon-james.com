@@ -4,6 +4,7 @@ angular.module('ramonjames', [
   'ngAnimate'
   'ngSanitize'
   'ramonjames.skrollr'
+  'ramonjames.templates'
 ])
 
 .config([
@@ -16,12 +17,12 @@ angular.module('ramonjames', [
     
     # routes
     $routeProvider.when('/', {
-      templateUrl : '/templates/home.tpl.html'
-      controller: 'PageController'
+      templateUrl : 'templates/home.tpl.html'
+      controller: 'HomeController'
     })
     .when('/about', {
-      templateUrl : '/templates/about.tpl.html'
-      controller: 'PageController'
+      templateUrl : 'templates/about.tpl.html'
+      controller: 'AboutController'
     })
     .otherwise({
       redirectTo : '/'

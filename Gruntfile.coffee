@@ -5,7 +5,8 @@ module.exports = (grunt)->
   
   # dev local variables
   devLocals = require './config/dev.locals.json'
-  
+  distLocals = require './config/dist.locals.json'
+
   # rewrite middleware
   modRewrite = require 'connect-modrewrite'
   mountFolder = (connect, dir) ->
@@ -34,18 +35,6 @@ module.exports = (grunt)->
         dest: '.tmp/js'
         ext: '.js'
     connect:
-      dev:
-        options:
-          port: grunt.option('port') || 8000
-          middleware: (connect)->
-            middlewares = [
-              modRewrite([
-                '!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.jpg$ /index.html [L]'
-              ])
-              mountFolder connect, '.tmp'
-              mountFolder connect, 'src'
-              mountFolder connect, './'
-            ]
       # https://blog.gaya.ninja/articles/static-mockup-data-endpoints-connect/
       api:
         options:
@@ -64,6 +53,23 @@ module.exports = (grunt)->
               res.end grunt.file.read(fileToRead)
             middlewares.push apiFunc
             middlewares
+      dev:
+        options:
+          port: grunt.option('port') || 8000
+          middleware: (connect)->
+            middlewares = [
+              modRewrite([
+                '!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.jpg$ /index.html [L]'
+              ])
+              mountFolder connect, './'
+              mountFolder connect, '.tmp/'
+              mountFolder connect, 'src/'
+            ]
+      dist:
+        options:
+          port: 8001
+          middleware: (connect)->
+           [mountFolder connect, 'dist/']
     copy:
       dist:
         files: [
@@ -76,6 +82,18 @@ module.exports = (grunt)->
             dest: 'dist/img/'
           }
         ]
+    html2js:
+      options:
+        quoteChar: '\''
+        useStrict: true
+        base: '.tmp/'
+        module: 'ramonjames.templates'
+        htmlmin:
+          removeComments: true
+          collapseWhitespace: true
+      dev:
+        src: ['.tmp/templates/*.tpl.html']
+        dest: '.tmp/js/templates.js'
     jade:
       compile:
         options:
@@ -110,6 +128,12 @@ module.exports = (grunt)->
               ext: '.tpl.html'
           }
         ]
+      dist:
+        options:
+          data: (dest, src)->
+            distLocals
+        files:
+          'dist/index.html' : 'src/jade/index.jade'
     less:
       dev:
         files:
@@ -123,11 +147,11 @@ module.exports = (grunt)->
       options:
         mangle: false
       dist:
-        files: 'dist/js/app.min.js': devLocals.scripts
+        files: 'dist/js/app.min.js': devLocals.vendor.concat devLocals.scripts
     watch:
       html:
         files: 'src/jade/**/*.jade'
-        tasks: ['jade', 'jade:views', 'jade:partials']
+        tasks: ['jade', 'jade:views', 'jade:partials', 'html2js:dev']
       locals:
         files: 'config/*.locals.json'
         tasks: ['jade']
@@ -154,6 +178,7 @@ module.exports = (grunt)->
     'jade'
     'jade:views'
     'jade:partials'
+    'html2js:dev'
   ]
   grunt.registerTask 'server', [
     'connect'
@@ -164,9 +189,11 @@ module.exports = (grunt)->
   grunt.registerTask 'dev', [
   ]
   grunt.registerTask 'dist', [
+    'clean:dist'
     'uglify:dist'
     'less:dist'
     'copy:dist'
+    'jade:dist'
   ]
   grunt.registerTask 'default', [
     'compile'
