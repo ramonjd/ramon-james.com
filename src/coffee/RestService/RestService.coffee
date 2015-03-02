@@ -9,11 +9,13 @@ angular.module('ramonjames')
       deferred = null
       httpCache = $cacheFactory 'httpCache'
       @getPage = (pageName)->
+        deferred = $q.defer()
         if httpCache.get(pageName)?
-          deferred = $q.defer()
-          return deferred.resolve httpCache.get(pageName)
+          deferred.resolve httpCache.get(pageName)
         else
-          return $http.get URLS[pageName]
-
+          $http.get(URLS[pageName]).then (response)->
+            deferred.resolve response
+            httpCache.put(pageName, response)
+        deferred.promise
       return
   ]

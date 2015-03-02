@@ -14,6 +14,5 @@ angular.module('ramonjames')
           $scope.$on 'windowHeight', (e, data)->
             setElementHeight $element, data
           setElementHeight $element, $window.innerHeight
-          rjSkrollr.refresh()
           return
   ])

@@ -1,5 +1,5 @@
 doctype html
-html(lang='en', ng-app='ramonjames')
+html(lang='en', ng-app='ramonjames', ng-controller='MainController')
   head
     title
     base(href='/')
@@ -11,7 +11,7 @@ html(lang='en', ng-app='ramonjames')
     each val in styles
       link(rel='stylesheet', href=val)
   body
-    main#main.view-animate-container(ng-controller='MainController')
+    main#main.view-animate-container
       div.view-animate(ng-view='')
     footer
       div

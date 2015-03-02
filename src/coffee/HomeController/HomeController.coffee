@@ -5,9 +5,14 @@ angular.module('ramonjames')
      '$controller'
      'RestService'
      '$anchorScroll'
-    ($scope, $controller, RestService, $anchorScroll)->
+     'rjSkrollr'
+     '$timeout'
+    ($scope, $controller, RestService, $anchorScroll, rjSkrollr, $timeout)->
       $anchorScroll 'top'
       RestService.getPage('home').then (response)->
-        console.log response
+        rjSkrollr.refresh()
+        $timeout ()->
+          rjSkrollr.refresh()
+        , 100
       return
   ]

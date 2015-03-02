@@ -25,9 +25,15 @@ div.home
           p Digital integration and production... Esoteric, eclectic, <strong>enlightened</strong>
 
   section#slide-3.slide
-    div.bgc
+    div.bgc(data-center='background-position: 50% 0px;'
+      data-100-bottom='background-position: 50% -200px;'
+      data-anchor-target='#slide-2')
       div.slide-container
         div.slide-content
-          h2 Get in touch
-          p
+          h2(data-center='text-indent:0px;opacity:1'
+             data-300-bottom='text-indent:-300px;opacity:.1'
+             data-anchor-target='#slide-3') Get in touch
+          p(data-center='text-indent:0px;opacity:1'
+             data-350-bottom='text-indent:-600px;opacity:.1'
+             data-anchor-target='#slide-3 h2')
            a(href='mailto:hello@ramon-james.com') hello@ramon-james.com

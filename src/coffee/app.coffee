@@ -12,9 +12,7 @@ angular.module('ramonjames', [
   '$locationProvider'
   'URLS'
   ($routeProvider, $locationProvider, URLS)->
-    
-    console.log 'URL constants', URLS
-    
+
     # routes
     $routeProvider.when('/', {
       templateUrl : 'templates/home.tpl.html'
