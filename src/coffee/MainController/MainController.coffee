@@ -19,7 +19,7 @@ angular.module('ramonjames')
           smoothScrollingDuration : 500
           scale : 1
           forceHeight : false
-          mobileDeceleration : .004
+          mobileDeceleration : 1
           constants:
             windowHeight: ()->
               $scope.$broadcast 'windowHeight', $window.innerHeight

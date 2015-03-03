@@ -1,5 +1,6 @@
 {
   "vendor" : [
+    "bower_components/components-modernizr/modernizr.js",
     "bower_components/skrollr/src/skrollr.js",
     "bower_components/angular/angular.js",
     "bower_components/angular-route/angular-route.js",
