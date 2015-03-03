@@ -1,7 +1,8 @@
 module.exports = (grunt)->
   
-  # endpoints for the mock json
-  endpoints = require './config/api.endpoints'
+  # API for the mock json
+  routes = require('./api/routes')(grunt)
+  cors = require './api/cors'
   
   # dev local variables
   devLocals = require './config/dev.locals.json'
@@ -41,17 +42,8 @@ module.exports = (grunt)->
           port: 8080
           hostname: 'localhost'
           middleware: (connect, options, middlewares)->
-            apiFunc = (req, res, next)->
-              res.setHeader 'Content-Type', 'application/json'
-              match = false
-              fileToRead = ''
-              Object.keys(endpoints).forEach (url)->
-                if req.url.indexOf(url) is 0
-                  match = true
-                  fileToRead = endpoints[url]
-              return next() if match is false
-              res.end grunt.file.read(fileToRead)
-            middlewares.push apiFunc
+            middlewares.push cors
+            middlewares.push routes
             middlewares
       dev:
         options:
@@ -152,11 +144,35 @@ module.exports = (grunt)->
           compress: true
         files:
           'dist/css/base.min.css' : 'src/less/base.less'
+    ngconstant:
+      options:
+        name: 'ramonjames.constants'
+        dest: '.tmp/js/constants.js'
+      dev:
+        constants:
+          ENV:
+            BASE: 'http://localhost:8080'
+            URLS:
+             'main' : '/wordpress/wp-json/'
+             'home' : '/wordpress/wp-json/pages/home'
+             'about' : '/wordpress/wp-json/pages/about'
+             'posts' : '/wordpress/wp-json/posts'
+      dist:
+        constants:
+          ENV:
+            base: 'http://ramon-james.com'
+            URLS:
+             'main' : '/wordpress/wp-json/'
+             'home' : '/wordpress/wp-json/pages/home'
+             'about' : '/wordpress/wp-json/pages/about'
+             'posts' : '/wordpress/wp-json/posts'
     uglify:
       options:
         mangle: false
       dist:
-        files: 'dist/js/app.min.js': devLocals.vendor.concat devLocals.scripts
+        files:
+          'dist/js/app.min.js': devLocals.vendor.concat devLocals.scripts.body
+          'dist/js/scripts.js' : devLocals.scripts.head
     watch:
       html:
         files: 'src/jade/**/*.jade'
@@ -184,6 +200,7 @@ module.exports = (grunt)->
     'clean:dev'
     'less:dev'
     'coffee:dev'
+    'ngconstant:dev'
     'jade'
     'jade:views'
     'jade:partials'
@@ -206,6 +223,7 @@ module.exports = (grunt)->
     'jade:dist'
   ]
   grunt.registerTask 'default', [
+    'dist'
     'compile'
     'server'
   ]

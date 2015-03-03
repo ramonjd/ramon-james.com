@@ -8,6 +8,8 @@ html(lang='en', ng-app='ramonjames', ng-controller='MainController')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     link(rel='icon', type='image/png', href='img/favicon.png')
     link(rel='profile', href='http://microformats.org/profile/hcard')
+    each val in scripts.head
+          script(src=val, type='text/javascript')
     each val in styles
       link(rel='stylesheet', href=val)
   body
@@ -28,5 +30,5 @@ html(lang='en', ng-app='ramonjames', ng-controller='MainController')
     if vendor
       each val in vendor
         script(src=val, type='text/javascript')
-    each val in scripts
+    each val in scripts.body
       script(src=val, type='text/javascript')

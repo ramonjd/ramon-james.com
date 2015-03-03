@@ -1,7 +1,12 @@
 {
-  "scripts" : [
-    "/js/app.min.js"
-  ],
+  "scripts" : {
+    "head" : [
+      "/js/scripts.js"
+    ],
+    "body" : [
+      "/js/app.min.js"
+    ]
+  },
   "styles" : [
     "/css/base.min.css"
   ]

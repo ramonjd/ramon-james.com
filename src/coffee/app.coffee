@@ -4,15 +4,13 @@ angular.module('ramonjames', [
   'ngAnimate'
   'ngSanitize'
   'ramonjames.skrollr'
-  'ramonjames.templates'
+  'ramonjames.templates',
+  'ramonjames.constants'
 ])
-
 .config([
   '$routeProvider'
   '$locationProvider'
-  'URLS'
-  ($routeProvider, $locationProvider, URLS)->
-
+  ($routeProvider, $locationProvider)->
     # routes
     $routeProvider.when('/', {
       templateUrl : 'templates/home.tpl.html'
@@ -25,13 +23,10 @@ angular.module('ramonjames', [
     .otherwise({
       redirectTo : '/'
     })
-    
     # nice urls thank you
     $locationProvider.html5Mode(true).hashPrefix '!'
-    
     return
 ])
-
 .run([() ->
   return
   ])

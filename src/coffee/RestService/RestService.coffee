@@ -4,8 +4,8 @@ angular.module('ramonjames')
      '$http'
      '$q'
      '$cacheFactory'
-     'URLS'
-    ($http, $q, $cacheFactory, URLS)->
+     'ENV'
+    ($http, $q, $cacheFactory, ENV)->
       deferred = null
       httpCache = $cacheFactory 'httpCache'
       @getPage = (pageName)->
@@ -13,7 +13,7 @@ angular.module('ramonjames')
         if httpCache.get(pageName)?
           deferred.resolve httpCache.get(pageName)
         else
-          $http.get(URLS[pageName]).then (response)->
+          $http.get(ENV.BASE + ENV.URLS[pageName]).then (response)->
             deferred.resolve response
             httpCache.put(pageName, response)
         deferred.promise

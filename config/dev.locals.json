@@ -1,23 +1,28 @@
 {
   "vendor" : [
-    "bower_components/components-modernizr/modernizr.js",
     "bower_components/skrollr/src/skrollr.js",
     "bower_components/angular/angular.js",
     "bower_components/angular-route/angular-route.js",
     "bower_components/angular-animate/angular-animate.js",
     "bower_components/angular-sanitize/angular-sanitize.js"
   ],
-  "scripts" : [
-    ".tmp/js/templates.js",
-    ".tmp/js/app.js",
-    ".tmp/js/constants.js",
-    ".tmp/js/RestService.js",
-    ".tmp/js/MainController.js",
-    ".tmp/js/HomeController.js",
-    ".tmp/js/AboutController.js",
-    ".tmp/js/skrollr.js",
-    ".tmp/js/scrollSlide.js"
-  ],
+  "scripts" : {
+    "head" : [
+      "bower_components/components-modernizr/modernizr.js"
+    ],
+    "body" : [
+      ".tmp/js/templates.js",
+      ".tmp/js/app.js",
+      ".tmp/js/constants.js",
+      ".tmp/js/RestService.js",
+      ".tmp/js/MainController.js",
+      ".tmp/js/HomeController.js",
+      ".tmp/js/AboutController.js",
+      ".tmp/js/skrollr.js",
+      ".tmp/js/scrollSlide.js"
+    ]
+
+  },
   "styles" : [
     "/css/base.css"
   ]
