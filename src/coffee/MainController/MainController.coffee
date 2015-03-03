@@ -8,12 +8,11 @@ angular.module('ramonjames')
     ($scope, $window, rjSkrollr, RestService)->
 
       # get main json
-      RestService.getPage('main').then (response)->#
+      RestService.getPage('main').success (response)->
         $scope.title = response.name
         $scope.description = response.description
-
       # set up the scroller
-      if $window.skrollr
+      if $window.skrollr and Modernizr.touch is false
         config =
           smoothScrolling : true
           smoothScrollingDuration : 500

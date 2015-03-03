@@ -7,11 +7,7 @@
 @import '_variables.less';
 @import '_typography.less';
 
-* {
-  margin:0;
-  padding:0;
-}
- body {
+body {
   background-color: #fff;
   color:#000;
   font-family: @font-serif;
@@ -34,13 +30,14 @@ nav {
 header {
   background-color: #000;
   height: 50px;
+  z-index:1000;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
 }
 main {
-
+  position:relative;
 }
 section {
   .bgc {
@@ -65,6 +62,9 @@ section {
       vertical-align: middle;
       padding: 0 8%;
       text-align: center;
+      @media(@xs) {
+       max-width: 250px;
+      }
     }
   }
   &.slide {
@@ -125,7 +125,8 @@ article {
    }
    .slide-content {
      h2 {
-         font-size:4rem;
+        color:white;
+        font-size:4rem;
      }
      p {
          font-size:2rem;
@@ -153,28 +154,32 @@ footer {
   background-color: #000;
   font-family: @font-sans-serif;
   text-transform:uppercase;
-  z-index:1000;
-  height: 50px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   color:#fff;
-  padding:0 1rem;
-  display: table;
+  padding:1rem 2rem;
+  font-size:1.1rem;
   a {
     color:#fff;
     text-decoration:none;
   }
-  div {
-   display: table-cell;
-   vertical-align: middle;
-   p, nav, span {
-    display:inline-block;
-    margin:0 6px;
-   }
-   li {
-    margin: 0 12px;
-   }
+  @media(@sm) {
+    p.copy {
+      float:right;
+    }
   }
+}
+
+// ng-animate
+.view-animate.ng-enter,
+.view-animate.ng-leave {
+  .transition(all .25s ease-out);
+}
+.view-animate.ng-enter {
+    opacity:0;
+}
+.view-animate.ng-enter.ng-enter-active {
+    opacity:0;
+}
+.view-animate.ng-leave.ng-leave-active {
+    opacity:0;
+
 }

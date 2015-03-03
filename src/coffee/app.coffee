@@ -15,10 +15,12 @@ angular.module('ramonjames', [
     $routeProvider.when('/', {
       templateUrl : 'templates/home.tpl.html'
       controller: 'HomeController'
+      controllerAs: 'home'
     })
     .when('/about', {
       templateUrl : 'templates/about.tpl.html'
       controller: 'AboutController'
+      controllerAs: 'about'
     })
     .otherwise({
       redirectTo : '/'

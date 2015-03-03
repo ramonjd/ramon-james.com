@@ -1,7 +1,7 @@
 doctype html
 html(lang='en', ng-app='ramonjames', ng-controller='MainController')
   head
-    title
+    title(ng-bind='title')
     base(href='/')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -16,17 +16,21 @@ html(lang='en', ng-app='ramonjames', ng-controller='MainController')
     main#main.view-animate-container
       div.view-animate(ng-view='')
     footer
-      div
-        p.copy
-          span.org &copy;
-          a(href='/') Ramon James Ltd
-          span.date #{new Date().getFullYear()}
-        nav
-          ul
-            li
-              a(href='/about') About
-            li
-              a(href='mailto:hello@ramon-james.com') Contact
+      div.units-row
+        div.unit-70
+          nav.navbar
+            ul
+              li
+                a(href='/') Home
+              li
+                a(href='/about') About
+              li
+                a(href='mailto:hello@ramon-james.com') Contact
+        div.unit-30
+          p.copy
+            span.org &copy; &nbsp;
+            a(href='/') Ramon James Ltd &nbsp;
+            span.date #{new Date().getFullYear()}
     if vendor
       each val in vendor
         script(src=val, type='text/javascript')
