@@ -160,7 +160,7 @@ module.exports = (grunt)->
       dist:
         constants:
           ENV:
-            base: 'http://ramon-james.com'
+            BASE: 'http://ramon-james.com'
             URLS:
              'main' : '/wordpress/wp-json/'
              'home' : '/wordpress/wp-json/pages/home'
@@ -216,6 +216,7 @@ module.exports = (grunt)->
   ]
   grunt.registerTask 'dist', [
     'compile'
+    'ngconstant:dist'
     'clean:dist'
     'uglify:dist'
     'less:dist'
@@ -223,7 +224,6 @@ module.exports = (grunt)->
     'jade:dist'
   ]
   grunt.registerTask 'default', [
-    'dist'
     'compile'
     'server'
   ]
