@@ -3,7 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Signika+Negative:300,400,600,700);
 
 // imports
-@import '../../bower_components/kube/less/kube.less';
+@import 'kube/kube.less';
 @import '_variables.less';
 @import '_typography.less';
 @import '_gelatin-button.less';
@@ -12,6 +12,13 @@ body {
   background-color: #fff;
   color:#000;
   font-family: @font-serif;
+  overflow:auto;
+  &.loading {
+    overflow:hidden;
+    .loading-logo {
+        display:block;
+    }
+  }
 }
 header,
 section,
@@ -138,6 +145,7 @@ article {
        color:#fff;
    }
    .slide-content {
+
     padding-top:3rem;
 
    }
@@ -148,8 +156,15 @@ article {
         color:#000;
     }
     .slide-content {
-    padding-top:3rem;
-    padding-bottom:3rem;
+        padding-top:3rem;
+        padding-bottom:3rem;
+        .services {
+            margin-bottom:2rem;
+                     .label {
+                        font-size:1.5rem;
+                     }
+        }
+
       h2, h3, p {
           color:black;
           font-size:3rem;
@@ -169,7 +184,6 @@ font-size:2,5rem;
   }
 footer {
   background-color: #000;
-  font-family: @font-sans-serif;
   text-transform:uppercase;
   color:#fff;
   padding:1rem 2rem;
@@ -187,6 +201,83 @@ footer {
     }
   }
 }
+
+//loading
+.loading-logo {
+  display:none;
+  background:white;
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:10000;
+  text-align:center;
+  div {
+    margin:0 auto;
+    position:absolute;
+    left:45%;
+    top:40%;
+    p {
+    font-size:1rem;
+                text-transform:uppercase;
+    }
+  }
+}
+
+.loading-logo > div {
+    -webkit-animation-name: pulsate;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-iteration-count: infinite
+}
+@-webkit-keyframes pulsate {
+    0% {opacity: 0.1}
+    10% {opacity: .20}
+    20% {opacity: .40 }
+    30% {opacity: .60 }
+    40% {opacity: .80 }
+    50% {opacity: 1.0}
+    60% {opacity: .80}
+    70% {opacity: .60}
+    80% {opacity: .40}
+    90% {opacity: .20}
+    100% {opacity: 0.1}
+ }
+
+// svg
+#svg-logo {
+    width:100px;
+    height:100px;
+    background:transparent;
+    -webkit-transform: scale(3, 3);
+    -o-transform: scale(3, 3);
+    transform: scale(3, 3);
+    .svg-black-fg-man {
+       // width:400px;
+            .black-fg-man {
+                    fill:none;
+                    stroke:#000;
+                    stroke-width:29;
+                    stroke-miterlimit:10;
+            }
+        }
+
+    .svg-grey-bg-man {
+       // width:400px;
+        .grey-bg-man {
+                fill:none;
+                stroke:#d1d1d1;
+                stroke-width:29;
+                stroke-miterlimit:10;
+        }
+     }
+
+     &.no-js {
+
+     }
+}
+
 
 // ng-animate
 .view-animate.ng-enter,

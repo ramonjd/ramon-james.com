@@ -5,8 +5,20 @@ angular.module('ramonjames')
     '$window'
     'rjSkrollr'
     'RestService'
-    ($scope, $window, rjSkrollr, RestService)->
-
+    'loadingLogoService'
+    '$timeout'
+    ($scope, $window, rjSkrollr, RestService, loadingLogoService, $timeout)->
+      # loading
+      $scope.loading = true
+      $scope.$on 'loading', (e, data)->
+        if data is true
+          $scope.loading = true
+          loadingLogoService.play()
+        else
+          $timeout ()->
+            loadingLogoService.stop()
+            $scope.loading = false
+          ,1000
       # get main json
       RestService.getPage('main').success (response)->
         $scope.title = response.name

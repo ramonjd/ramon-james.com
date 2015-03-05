@@ -5,7 +5,7 @@ angular.module('ramonjames')
     'rjSkrollr'
     ($window, rjSkrollr)->
       setElementHeight = (elem, h)->
-        elem.css 'height', h - 50 + 'px'
+        elem.css 'height', h + 'px'
         elem
       scrollSlideObj =
         restrict : 'A'
