@@ -10,7 +10,9 @@ angular.module('ramonjames')
     ($scope, $controller, RestService, $anchorScroll, rjSkrollr, $timeout)->
       $anchorScroll 'top'
       RestService.getPage('home').success (response)->
-        $scope.author = response.author;
+        $scope.author = response.author
+        $scope.title = response.title
+        $scope.content = response.content
         $timeout ()->
           rjSkrollr.refresh()
         , 100

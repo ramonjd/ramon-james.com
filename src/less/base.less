@@ -6,6 +6,7 @@
 @import '../../bower_components/kube/less/kube.less';
 @import '_variables.less';
 @import '_typography.less';
+@import '_gelatin-button.less';
 
 body {
   background-color: #fff;
@@ -40,6 +41,7 @@ main {
   position:relative;
 }
 section {
+  position:relative;
   .bgc {
     background-position: center center;
     background-repeat: no-repeat;
@@ -112,7 +114,7 @@ article {
   .slide-container {
     .slide-content {
         h1 {
-            font-size:1.2rem;
+            font-size:1.8rem;
             text-transform:uppercase;
         }
         p {
@@ -130,25 +132,36 @@ article {
 #slide-2 {
    .bgc {
        background-color:#000;
-       height:400px;
        color:#fff;
    }
    .slide-content {
-
+    padding-top:3rem;
 
    }
  }
  #slide-3 {
     .bgc {
         background:#ebebeb url('/img/light_movement_black_white.jpg');
-        height:600px;
         color:#000;
     }
     .slide-content {
-      h2 {
+    padding-top:3rem;
+    padding-bottom:3rem;
+      h2, h3, p {
           color:black;
+          font-size:3rem;
       }
-
+      a {
+font-size:2,5rem;
+      }
+    }
+    .image-tiles {
+        margin-bottom:2rem;
+        img {
+            height:75px;
+            display:inline-block;
+            margin:0 10px 10px 0;
+        }
     }
   }
 footer {

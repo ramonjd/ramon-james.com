@@ -6,9 +6,8 @@ a.btn {
   font-size: 1.625rem;
   text-decoration: none;
   outline: none;
-  color: #fff;
-  background-color: #fe4365;
-  border-radius: 3px;
+  color: #000;
+  background-color: #fff;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fe4365;
@@ -18,12 +17,12 @@ a.btn {
   transition: box-shadow .3s;
   &:hover,
   &:focus {
-      -webkit-box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #ff0364;
-      box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #ff0364;
       -webkit-transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
       transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
       -webkit-animation: gelatine 0.5s 1;
       animation: gelatine 0.5s 1;
+      background:#000;
+      color:#fff;
   }
 }
 
@@ -40,11 +39,8 @@ a.btn-secondary {
 
 a.btn:active,
 a.btn-secondary:active {
-  background: #4ecdc4;
   -webkit-transition-duration: 0;
   transition-duration: 0;
-  -webkit-box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #3ac7bd;
-  box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #3ac7bd;
 }
 
 /**
