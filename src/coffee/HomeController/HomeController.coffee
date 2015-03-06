@@ -12,9 +12,9 @@ angular.module('ramonjames')
       $scope.$emit 'loading', true
       RestService.getPage('home').success (response)->
         $scope.author = response.author
-        $scope.title = response.title
+        $scope.heading = response.title
         $scope.content = response.content
-        $scope.$emit 'loading', false
+        #$scope.$emit 'loading', false
         $timeout ()->
           rjSkrollr.refresh()
         , 100

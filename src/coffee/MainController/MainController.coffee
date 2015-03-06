@@ -8,7 +8,7 @@ angular.module('ramonjames')
     'loadingLogoService'
     '$timeout'
     ($scope, $window, rjSkrollr, RestService, loadingLogoService, $timeout)->
-      # loading
+      ### loading
       $scope.loading = true
       $scope.$on 'loading', (e, data)->
         if data is true
@@ -19,6 +19,7 @@ angular.module('ramonjames')
             loadingLogoService.stop()
             $scope.loading = false
           ,1000
+      ###
       # get main json
       RestService.getPage('main').success (response)->
         $scope.title = response.name

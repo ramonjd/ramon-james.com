@@ -14,7 +14,6 @@ html(lang='en', ng-app='ramonjames', ng-controller='MainController')
       link(rel='stylesheet', href=val)
   body(ng-class='{loading:loading}')
     div.loading-logo
-      div(loading-logo="", loading='loading')
     main#main.view-animate-container
       div.view-animate(ng-view='', ng-cloak='')
     footer
