@@ -14,9 +14,8 @@ angular.module('ramonjames')
         $scope.author = response.author
         $scope.heading = response.title
         $scope.content = response.content
-        #$scope.$emit 'loading', false
         $timeout ()->
           rjSkrollr.refresh()
-        , 100
+        , 500
       return
   ]

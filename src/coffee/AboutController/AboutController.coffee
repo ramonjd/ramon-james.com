@@ -10,7 +10,6 @@ angular.module('ramonjames')
       RestService.getPage('about').success (response)->
         $scope.heading = response.title
         $scope.content = response.content
-        #$scope.$emit 'loading', false
       $anchorScroll 'top'
       return
   ]
