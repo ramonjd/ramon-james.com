@@ -15,3 +15,4 @@ http://flatuicolors.com/
 http://bootflat.github.io/index.html
 http://codyhouse.co/gem/animate-svg-icons-with-css-and-snap/
 http://prinzhorn.github.io/skrollr/examples/path.html
+http://davetayls.me/ (blog image posts)

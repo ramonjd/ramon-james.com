@@ -1,7 +1,6 @@
 {
   "vendor" : [
     "bower_components/skrollr/src/skrollr.js",
-    "bower_components/vivus/dist/vivus.js",
     "bower_components/angular/angular.js",
     "bower_components/angular-route/angular-route.js",
     "bower_components/angular-animate/angular-animate.js",
@@ -20,8 +19,7 @@
       ".tmp/js/HomeController.js",
       ".tmp/js/AboutController.js",
       ".tmp/js/skrollr.js",
-      ".tmp/js/scrollSlide.js",
-      ".tmp/js/loadingLogo.js"
+      ".tmp/js/scrollSlide.js"
     ]
   },
   "styles" : [

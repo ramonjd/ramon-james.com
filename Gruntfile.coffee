@@ -83,6 +83,9 @@ module.exports = (grunt)->
             dest: 'dist/'
           }
         ]
+      dev:
+        files: [
+        ]
     html2js:
       options:
         quoteChar: '\''
@@ -200,6 +203,7 @@ module.exports = (grunt)->
     'clean:dev'
     'less:dev'
     'coffee:dev'
+    'copy:dev'
     'ngconstant:dev'
     'jade'
     'jade:views'

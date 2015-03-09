@@ -13,7 +13,6 @@ html(lang='en', ng-app='ramonjames', ng-controller='MainController')
     each val in styles
       link(rel='stylesheet', href=val)
   body(ng-class='{loading:loading}')
-    div.loading-logo
     main#main.view-animate-container
       div.view-animate(ng-view='', ng-cloak='')
     footer
@@ -30,7 +29,7 @@ html(lang='en', ng-app='ramonjames', ng-controller='MainController')
         div.unit-30
           p.copy
             span.org &copy; &nbsp;
-            a(href='/') Ramon James Ltd &nbsp;
+            a(href='/') {{title}} Ltd &nbsp;
             span.date #{new Date().getFullYear()}
     if vendor
       each val in vendor
