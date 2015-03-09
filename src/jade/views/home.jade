@@ -1,18 +1,30 @@
 div.home
   section#slide-1.slide(scroll-slide='', data-max-height="true")
-    div.bgc
-      div.slide-container
-        div.slide-content(data-center='opacity: 1',
-          data-50-top='opacity: 0',
-          data-anchor-target='#slide-1 h1')
-          img.logo(src='img/logo-transparent.png',
-            alt='{{author.name}} :: {{author.description}}',
-            data-start='transform: rotateY(0deg);',
-            data--100-top='transform: rotateY(-180deg);'
-            )
-          h1 {{author.name}}
-          p {{author.description}}
-
+    div.bgc.swiper-container
+      div.swiper-wrapper.slide-container
+        div.swiper-slide
+          div.slide-content(data-center='opacity: 1',
+            data-50-top='opacity: 0',
+            data-anchor-target='#slide-1 h1')
+            img.logo(src='img/logo-transparent.png',
+              alt='{{author.name}} :: {{author.description}}',
+              data-start='transform: rotateY(0deg);',
+              data--100-top='transform: rotateY(-180deg);'
+              )
+            h1 {{author.name}}
+            p {{author.description}}
+        div.swiper-slide
+          div.slide-content
+            h1 Slide 2
+        div.swiper-slide
+          div.slide-content
+            h1 Slide 3       
+        div.swiper-slide
+          div.slide-content
+            h1 Slide 4
+      div.swiper-pagination   
+      div.swiper-button-prev
+      div.swiper-button-next
   section#slide-2.slide
     div.bgc(data-center='opacity:1'
       data-bottom='opacity:.1'

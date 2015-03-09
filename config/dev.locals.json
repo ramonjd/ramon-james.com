@@ -1,6 +1,7 @@
 {
   "vendor" : [
     "bower_components/skrollr/src/skrollr.js",
+    "bower_components/swiper/dist/js/swiper.js",
     "bower_components/angular/angular.js",
     "bower_components/angular-route/angular-route.js",
     "bower_components/angular-animate/angular-animate.js",
