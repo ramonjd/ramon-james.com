@@ -22,6 +22,11 @@ angular.module('ramonjames', [
       controller: 'AboutController'
       controllerAs: 'about'
     })
+    .when('/blog', {
+      templateUrl : 'templates/blog.tpl.html'
+      controller: 'BlogController'
+      controllerAs: 'blog'
+    })
     .otherwise({
       redirectTo : '/'
     })

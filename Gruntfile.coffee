@@ -159,7 +159,7 @@ module.exports = (grunt)->
              'main' : '/wordpress/wp-json/'
              'home' : '/wordpress/wp-json/pages/home'
              'about' : '/wordpress/wp-json/pages/about'
-             'posts' : '/wordpress/wp-json/posts'
+             'posts' : '/wordpress/wp-json/posts/'
       dist:
         constants:
           ENV:
@@ -168,7 +168,7 @@ module.exports = (grunt)->
              'main' : '/wordpress/wp-json/'
              'home' : '/wordpress/wp-json/pages/home'
              'about' : '/wordpress/wp-json/pages/about'
-             'posts' : '/wordpress/wp-json/posts'
+             'posts' : '/wordpress/wp-json/posts/'
     uglify:
       options:
         mangle: false

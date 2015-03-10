@@ -19,6 +19,7 @@
       ".tmp/js/MainController.js",
       ".tmp/js/HomeController.js",
       ".tmp/js/AboutController.js",
+      ".tmp/js/BlogController.js",
       ".tmp/js/skrollr.js",
       ".tmp/js/scrollSlide.js"
     ]

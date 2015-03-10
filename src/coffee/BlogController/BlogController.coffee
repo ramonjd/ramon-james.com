@@ -1,14 +1,14 @@
 'use strict'
 angular.module('ramonjames')
-  .controller 'AboutController', [
+  .controller 'BlogController', [
      '$scope'
      '$controller'
      'RestService'
      '$anchorScroll'
     ($scope, $controller, RestService, $anchorScroll)->
-      RestService.getPage('about').success (response)->
-        $scope.heading = response.title
-        $scope.content = response.content
+      RestService.getPage('posts').success (response)->
+        console.log response
+        $scope.posts = response
       $anchorScroll 'top'
       return
   ]
