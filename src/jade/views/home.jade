@@ -1,6 +1,7 @@
 div.home
-  section#slide-1.slide(scroll-slide='', data-max-height="true")
+  section#slide-1.slide(scroll-slide='', data-max-height='true')
     div.bgc.swiper-container
+      div.parallax-bg(style='background-image:url(img/gallery-bg.jpg)', data-swiper-parallax='-23%')
       div.swiper-wrapper.slide-container
         div.swiper-slide
           div.slide-content(data-center='opacity: 1',
@@ -11,23 +12,30 @@ div.home
               data-start='transform: rotateY(0deg);',
               data--100-top='transform: rotateY(-180deg);'
               )
-            h1 {{author.name}}
-            p {{author.description}}
+            div
+              h1 {{author.name}}
+            div
+              p {{author.description}}
+        div.swiper-slide
+          div.slide-content(data-swiper-parallax='-100')
+            article
+              div
+                h1 Mass media for the discerning masses
+              div
+                p Connect and channel messages through social media, targeted content and online intrigue.
         div.swiper-slide
           div.slide-content
-            h1 Slide 2
-        div.swiper-slide
-          div.slide-content
-            h1 Slide 3       
-        div.swiper-slide
-          div.slide-content
-            h1 Slide 4
+            article
+              div
+                h1 Transform values, relationships, politics...
+                p through online personalities, narrative constructs and ceaseless digital optimism.
+
       div.swiper-pagination   
       div.swiper-button-prev
       div.swiper-button-next
   section#slide-2.slide
-    div.bgc(data-center='opacity:1'
-      data-bottom='opacity:.1'
+    div.bgc(data--100-bottom='opacity:1'
+      data-bottom-top='opacity:.1'
       data-anchor-target='#slide-2')
       div.slide-container
         div.slide-content(ng-bind-html='content')

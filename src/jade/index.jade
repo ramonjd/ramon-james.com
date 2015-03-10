@@ -1,18 +1,18 @@
 doctype html
 html(lang='en', ng-app='ramonjames', ng-controller='MainController')
   head
-    title(ng-bind='title')
-    base(href='/')
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    link(rel='icon', type='image/png', href='img/favicon.png')
-    link(rel='profile', href='http://microformats.org/profile/hcard')
-    each val in scripts.head
-          script(src=val, type='text/javascript')
-    each val in styles
-      link(rel='stylesheet', href=val)
+    include ./includes/head.jade
   body(ng-class='{loading:loading}')
+    header
+      nav.navbar
+        div.brand
+          a(href='/')
+            include ./includes/logo.jade
+        ul
+          li
+            a(href='/about') About
+          li
+            a(href='mailto:hello@ramon-james.com') Contact
     main#main.view-animate-container
       div.view-animate(ng-view='', ng-cloak='')
     footer

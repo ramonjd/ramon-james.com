@@ -9,21 +9,34 @@ angular.module('ramonjames')
      '$timeout'
     ($scope, $controller, RestService, $anchorScroll, rjSkrollr, $timeout)->
       $anchorScroll 'top'
-      $scope.$emit 'loading', true
       RestService.getPage('home').success (response)->
         $scope.author = response.author
         $scope.heading = response.title
         $scope.content = response.content
-        $timeout ()->
-          rjSkrollr.refresh()
-        , 500
-      
-      $scope.swiper = new Swiper('.swiper-container', {
+        # set up swiper
+        $scope.swiper = new Swiper('.swiper-container', {
+          #pagination: '.swiper-pagination'
+          #paginationClickable: true
+          #nextButton: '.swiper-button-next'
+          #prevButton: '.swiper-button-prev'
+          slidesPerView: 1
+          #paginationClickable: true
+          #spaceBetween: 30
+          #loop: true
+          #parallax: true,
+          #speed: 600
           pagination: '.swiper-pagination'
           paginationClickable: true
           nextButton: '.swiper-button-next'
           prevButton: '.swiper-button-prev'
-          spaceBetween: 30
+          parallax: true
+          speed: 600
         })
+        $timeout ()->
+          rjSkrollr.refresh()
+        , 500
+      $scope.$on 'windowHeight', (e, data)->
+        if $scope.swiper
+         $scope.swiper.update()
       return
   ]
