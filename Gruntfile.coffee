@@ -112,11 +112,11 @@ module.exports = (grunt)->
           pretty: true
         files: [
           {
-              cwd: 'src/jade/views'
-              src: '**/*.jade',
-              dest: '.tmp/templates',
-              expand: true,
-              ext: '.tpl.html'
+            cwd: 'src/jade/views'
+            src: '**/*.jade'
+            dest: '.tmp/templates'
+            expand: true
+            ext: '.tpl.html'
           }
         ]
       partials:
@@ -125,11 +125,11 @@ module.exports = (grunt)->
           pretty: true
         files: [
           {
-              cwd: 'src/jade/partials'
-              src: '**/*.jade',
-              dest: '.tmp/templates',
-              expand: true,
-              ext: '.tpl.html'
+            cwd: 'src/jade/partials'
+            src: '**/*.jade'
+            dest: '.tmp/templates'
+            expand: true
+            ext: '.tpl.html'
           }
         ]
       dist:
@@ -156,19 +156,19 @@ module.exports = (grunt)->
           ENV:
             BASE: 'http://localhost:8080'
             URLS:
-             'main' : '/wordpress/wp-json/'
-             'home' : '/wordpress/wp-json/pages/home'
-             'about' : '/wordpress/wp-json/pages/about'
-             'posts' : '/wordpress/wp-json/posts/'
+              'main' : '/wordpress/wp-json/'
+              'home' : '/wordpress/wp-json/pages/home'
+              'about' : '/wordpress/wp-json/pages/about'
+              'posts' : '/wordpress/wp-json/posts/'
       dist:
         constants:
           ENV:
             BASE: 'http://ramon-james.com'
             URLS:
-             'main' : '/wordpress/wp-json/'
-             'home' : '/wordpress/wp-json/pages/home'
-             'about' : '/wordpress/wp-json/pages/about'
-             'posts' : '/wordpress/wp-json/posts/'
+              'main' : '/wordpress/wp-json/'
+              'home' : '/wordpress/wp-json/pages/home'
+              'about' : '/wordpress/wp-json/pages/about'
+              'posts' : '/wordpress/wp-json/posts/'
     uglify:
       options:
         mangle: false

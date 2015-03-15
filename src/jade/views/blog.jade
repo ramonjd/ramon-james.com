@@ -7,4 +7,6 @@ div.blog
           ol.posts
            li(ng-repeat="post in posts")
              h2(ng-bind="post.title")
+             date
+               span {{ post.date | date : 'MMMM d, y' }}
              div.post-excerpt(ng-bind-html="post.excerpt")

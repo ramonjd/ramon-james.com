@@ -2,11 +2,10 @@
 angular.module('ramonjames')
   .controller 'AboutController', [
      '$scope'
-     '$controller'
      'RestService'
      '$anchorScroll'
-    ($scope, $controller, RestService, $anchorScroll)->
-      RestService.getPage('about').success (response)->
+    ($scope, RestService, $anchorScroll)->
+      RestService.getPage('about').then (response)->
         $scope.heading = response.title
         $scope.content = response.content
       $anchorScroll 'top'

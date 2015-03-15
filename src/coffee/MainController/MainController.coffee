@@ -7,7 +7,7 @@ angular.module('ramonjames')
     'RestService'
     ($scope, $window, rjSkrollr, RestService)->
       # get main json
-      RestService.getPage('main').success (response)->
+      RestService.getPage('main').then (response)->
         $scope.title = response.name
         $scope.description = response.description
       # set up the scroller

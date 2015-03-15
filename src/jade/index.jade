@@ -2,7 +2,7 @@ doctype html
 html(lang='en', ng-app='ramonjames', ng-controller='MainController')
   head
     include ./includes/head.jade
-  body(ng-class='{loading:loading}')
+  body
     header
       nav.navbar
         div.brand
@@ -33,8 +33,9 @@ html(lang='en', ng-app='ramonjames', ng-controller='MainController')
         div.unit-30
           p.copy
             span.org &copy; &nbsp;
-            a(href='/') {{title}} Ltd &nbsp;
+            a(href='/', ng-bind='title + " Ltd "') 
             span.date #{new Date().getFullYear()}
+    div.loading-container(loading-container='')    
     if vendor
       each val in vendor
         script(src=val, type='text/javascript')

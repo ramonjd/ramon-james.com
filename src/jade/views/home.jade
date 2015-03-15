@@ -1,7 +1,7 @@
 div.home
-  section#slide-1.slide(scroll-slide='', data-max-height='true')
+  section#slide-1.group(scroll-slide='', data-max-height='true')
     div.bgc.swiper-container
-      div.parallax-bg(style='background-image:url(img/gallery-bg.jpg)', data-swiper-parallax='-23%')
+      div.parallax-bg(style='background-image:url(img/bg-canvas.jpg)', data-swiper-parallax='-23%')
       div.swiper-wrapper.slide-container
         div.swiper-slide
           div.slide-content(data-center='opacity: 1',
@@ -35,14 +35,14 @@ div.home
       div.swiper-pagination   
       div.swiper-button-prev
       div.swiper-button-next
-  section#slide-2.slide
+  section#slide-2.group
     div.bgc(data--100-bottom='opacity:1'
       data-bottom-top='opacity:.1'
       data-anchor-target='#slide-2')
       div.slide-container
         div.slide-content(ng-bind-html='content')
 
-  section#slide-3.slide
+  section#slide-3.group
     div.bgc(data-center='background-position: 50% 0px;'
       data-top-bottom='background-position: 50% -300px;'
       data-anchor-target='#slide-3')
