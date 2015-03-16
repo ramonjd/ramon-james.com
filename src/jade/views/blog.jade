@@ -1,12 +1,20 @@
 div.blog
   section.page-container
     article
-      div.units-row
-        h1 Blog
-        div.page-content
+      section
+        div.units-row
           ol.posts
-           li(ng-repeat="post in posts")
-             h2(ng-bind="post.title")
-             date
-               span {{ post.date | date : 'MMMM d, y' }}
-             div.post-excerpt(ng-bind-html="post.excerpt")
+            li(ng-repeat='post in posts track by $index', class='post-{{$index}}')
+              a(ng-href='{{post.link}}', data-rest-url='/wordpress/wp-json/posts/{{post.ID}}')
+                div
+                  h2(ng-bind='post.title')
+                  date
+                    span {{ post.date | date : 'MMMM d, y' }}
+        div.units-row(ng-if='count > 5')
+          ul.pagination
+            li
+              a(href='#', ng-click='', ng-class='') &larr;
+            li  
+              span {{currentPage}} of {{pages}}    
+            li
+              a(href='#', ng-click='', ng-class='') &rarr;        

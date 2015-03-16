@@ -21,6 +21,7 @@ body {
   color:#000;
   font-family: @font-serif;
   overflow:auto;
+  .selection(244, 244, 244);
   &.loading {
     overflow:hidden;
     .loading-logo {
@@ -155,10 +156,14 @@ section {
       article {
         padding:0;
         text-align:left;
+        &.text-centered {
+          text-align:center;
+        }
       }
       h2 {
         color:white;
         font-size:2.4rem;
+        margin-bottom:.4rem;
         @media(@sm) {
           font-size:4rem;
         }
@@ -219,12 +224,92 @@ article {
     color:#7a7a7a;
     font-size:1.8rem;
     margin:0 0 1rem 0;    
-  }  
+  } 
+  img {
+    width:100%;
+    display:block;
+    margin-bottom:1rem;
+    @media(@sm) {
+      width:auto;
+      max-width:100%;
+    }
+  }
   ol.posts {
     list-style:none;
     margin-left:0;
     li {
-      margin:0 0 3rem 0;
+      margin:0 0 3% 0;
+      background:#222;
+      .box-sizing(border-box);
+      overflow: hidden;
+      vertical-align: top;
+      height:200px;
+      float:none;
+      width:100%;
+      a {
+        display:block;
+        height:100%;
+      }
+      h2, date {
+        color: white;
+        font-size:1.3rem;
+      }
+      h2 {
+        font-size:2rem;
+      }
+      div {
+        margin:10px;
+        background-color: rgba(0,0,0,.5);
+        padding:10px;
+        display: inline-block;
+      } 
+      @media(@sm) {
+        &.post-0 {
+          width:100%;
+          height:500px;
+          .clearfix;
+        }
+        &.post-1 {
+          width: 48.5%;
+          float: left;
+          height:300px;
+          h2 {
+            font-size:1.6rem;
+          }        
+        }
+        &.post-2 {
+          width: 48.5%;
+          margin-left: 3%;
+          float: left;
+          height:300px;
+          h2 {
+            font-size:1.6rem;
+          }        
+        }
+        &.post-3 {
+          h2 {
+            font-size:1.3rem;
+          }
+          width: 31.333333333333332%;
+          float: left;
+        }
+        &.post-4 {
+          h2 {
+            font-size:1.3rem;
+          }
+          width: 31.333333333333332%;
+          margin-left: 3%;
+          float: left;
+        }
+        &.post-5 {
+          h2 {
+            font-size:1.3rem;
+          }
+          width: 31.333333333333332%;
+          margin-left: 3%;
+          float: left;
+        }
+      }      
     }    
   }
   .services {
@@ -251,7 +336,8 @@ canvas[resize] {
       margin-top:155px;
     }
     .slide-content {
-      h1 {
+      h1, h2 {
+        color:black;
         font-size:1.4rem;
         text-transform:uppercase;
         background:rgba(255, 255, 255, .97);
@@ -260,9 +346,10 @@ canvas[resize] {
         @media(@md) {
           font-size:1.8rem;
         }
+        margin: 0 0 1rem 0;
       }
       p {
-        font-size:1.6rem;
+        font-size:1.3rem;
         text-transform:lowercase;
         color:#888;
         background:rgba(255, 255, 255, .97);
