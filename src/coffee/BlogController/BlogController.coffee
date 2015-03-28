@@ -7,6 +7,7 @@ angular.module('ramonjames')
     ($scope, RestService, $anchorScroll)->
       RestService.getPage('posts').then (response)->
         $scope.posts = response
+        console.log $scope.posts
         $scope.length = response.length
         $scope.count = response[0].count
         $scope.pages = $scope.length / 5

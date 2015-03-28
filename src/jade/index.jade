@@ -17,24 +17,24 @@ html(lang='en', ng-app='ramonjames', ng-controller='MainController')
             a(href='mailto:hello@ramon-james.com') Contact
     main#main.view-animate-container
       div.view-animate(ng-view='', ng-cloak='')
-    footer
-      div.units-row
-        div.unit-70
-          nav.navbar
-            ul
-              li
-                a(href='/') Home
-              li
-                a(href='/blog') Blog
-              li
-                a(href='/about') About
-              li
-                a(href='mailto:hello@ramon-james.com') Contact
-        div.unit-30
-          p.copy
-            span.org &copy; &nbsp;
-            a(href='/', ng-bind='title + " Ltd "') 
-            span.date #{new Date().getFullYear()}
+      footer
+        div.units-row
+          div.unit-70
+            nav.navbar
+              ul
+                li
+                  a(href='/') Home
+                li
+                  a(href='/blog') Blog
+                li
+                  a(href='/about') About
+                li
+                  a(href='mailto:hello@ramon-james.com') Contact
+          div.unit-30
+            p.copy
+              span.org &copy; &nbsp;
+              a(href='/', ng-bind='title + " Ltd "') 
+              span.date #{new Date().getFullYear()}
     div.loading-container(loading-container='')    
     if vendor
       each val in vendor
