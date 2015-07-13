@@ -7,6 +7,7 @@ module.exports = (grunt)->
   # dev local variables
   devLocals = require './config/dev.locals.json'
   distLocals = require './config/dist.locals.json'
+  apiPaths= require './config/api.paths.json'
 
   # rewrite middleware
   modRewrite = require 'connect-modrewrite'
@@ -155,20 +156,12 @@ module.exports = (grunt)->
         constants:
           ENV:
             BASE: 'http://localhost:8080'
-            URLS:
-              'main' : '/wordpress/wp-json/'
-              'home' : '/wordpress/wp-json/pages/home'
-              'about' : '/wordpress/wp-json/pages/about'
-              'posts' : '/wordpress/wp-json/posts/'
+            URLS: apiPaths
       dist:
         constants:
           ENV:
             BASE: 'http://ramon-james.com'
-            URLS:
-              'main' : '/wordpress/wp-json/'
-              'home' : '/wordpress/wp-json/pages/home'
-              'about' : '/wordpress/wp-json/pages/about'
-              'posts' : '/wordpress/wp-json/posts/'
+            URLS: apiPaths
     uglify:
       options:
         mangle: false

@@ -1,0 +1,55 @@
+{
+  "ID": 41,
+  "title": "Contact",
+  "status": "publish",
+  "type": "page",
+  "author": {
+    "ID": 1,
+    "username": "ramonjd",
+    "name": "Ramon James",
+    "first_name": "Ramon",
+    "last_name": "James",
+    "nickname": "Ramon James",
+    "slug": "ramonjd",
+    "URL": "http:\/\/ramon-james.com",
+    "avatar": "",
+    "description": "Writer and digital renaissance human",
+    "registered": "2015-02-26T13:24:58+00:00",
+    "meta": {
+      "links": {
+        "self": "http:\/\/ramon-james.com\/wordpress\/wp-json\/users\/1",
+        "archives": "http:\/\/ramon-james.com\/wordpress\/wp-json\/users\/1\/posts"
+      }
+    },
+    "acf": false
+  },
+  "content": "<p>I write and illustrate and build websites so you don&#8217;t have to.<\/p>\n<h3>Get in touch<\/h3>\n<p><a class=\"btn\" href=\"hello@ramon-james.com\">hello@ramon-james.com<\/a><\/p>\n",
+  "parent": 0,
+  "link": "http:\/\/ramon-james.com\/wordpress\/contact\/",
+  "date": "2015-04-05T10:30:49+00:00",
+  "modified": "2015-04-05T10:31:22+00:00",
+  "format": "standard",
+  "slug": "contact",
+  "guid": "http:\/\/ramon-james.com\/wordpress\/?page_id=41",
+  "excerpt": "<p>I write and illustrate and build websites so you don&#8217;t have to. Get in touch hello@ramon-james.com<\/p>\n",
+  "menu_order": 0,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "date_tz": "UTC",
+  "date_gmt": "2015-04-05T10:30:49+00:00",
+  "modified_tz": "UTC",
+  "modified_gmt": "2015-04-05T10:31:22+00:00",
+  "meta": {
+    "links": {
+      "self": "http:\/\/ramon-james.com\/wordpress\/wp-json\/pages\/contact",
+      "author": "http:\/\/ramon-james.com\/wordpress\/wp-json\/users\/1",
+      "collection": "http:\/\/ramon-james.com\/wordpress\/wp-json\/pages",
+      "replies": "http:\/\/ramon-james.com\/wordpress\/wp-json\/pages\/41\/comments",
+      "version-history": "http:\/\/ramon-james.com\/wordpress\/wp-json\/pages\/41\/revisions"
+    }
+  },
+  "acf": false,
+  "featured_image": null,
+  "terms": []
+}

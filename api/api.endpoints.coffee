@@ -4,4 +4,5 @@ endpoints =
   '/wordpress/wp-json/pages/' : 'api/pages.json'
   '/wordpress/wp-json/pages/home' : 'api/home.json'
   '/wordpress/wp-json/pages/about' : 'api/about.json'
+  '/wordpress/wp-json/pages/contact' : 'api/contact.json'
 module.exports = endpoints
