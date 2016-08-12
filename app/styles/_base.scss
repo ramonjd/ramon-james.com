@@ -1,0 +1,133 @@
+@import "_variables";
+@import "_mixins";
+
+// ------------- reset and base
+
+* {
+  margin:0;
+  padding:0;
+  line-height:1;
+  border:0;
+  background:transparent;
+}
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Helvetica', 'Arial MT Bold','Montserrat', sans-serif;
+  color: $heading-text-color;
+  //background-image: url("http://www.jamiecoulter.co.uk/dev/codepen/blurred_bg.jpg");
+  //font-family: 'Raleway', sans-serif;
+  background-size: 100% 100%;
+  height: 100vh;
+}
+
+
+// ------------- flex
+
+.flex__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start; //space-around
+    align-items: flex-start;
+    align-content: flex-start; // stretch
+    .flex__container__item {
+        flex-grow: 1;
+        flex-basis: inherit;
+        align-self: stretch;
+        @include bp-medium {
+            flex-basis: 10px;
+        }
+    }
+}
+
+// ------------- sticky nav overrides
+.sticky--stuck {
+    opacity:0;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+    -webkit-animation-duration:0.25s;
+    -moz-animation-duration:0.25s;
+    animation-duration:0.25s;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+// ------------- icons
+
+.icon {
+  display: inline-block;
+  margin-right:10px;
+  color: white;
+  font-weight: 300;
+}
+
+.icon--loading--animated {
+  color: black;
+  animation: loading ease-in-out 1.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  animation-fill-mode:forwards; /*when the spec is finished*/
+  -webkit-animation: loading ease-in-out 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-fill-mode:forwards; /*Chrome 16+, Safari 4+*/
+  -moz-animation: loading ease-in-out 1.5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-transform-origin: 50% 50%;
+  -moz-animation-fill-mode:forwards; /*FF 5+*/
+}
+
+@keyframes loading {
+  0% {
+    opacity:1;
+    transform:  translate(0px,0px) rotate(0deg);
+  }
+  50% {
+    opacity:0.25;
+    transform:  translate(75px,0px) rotate(180deg);
+  }
+  100% {
+    opacity:1;
+    transform:  translate(0px,0px) rotate(0deg);
+  }
+}
+
+@-moz-keyframes loading{
+  0% {
+    opacity:1;
+    -moz-transform:  translate(0px,0px) rotate(0deg);
+  }
+  50% {
+    opacity:0.25;
+    -moz-transform:  translate(75px,0px) rotate(180deg);
+  }
+  100% {
+    opacity:1;
+    -moz-transform:  translate(0px,0px) rotate(0deg);
+  }
+}
+
+@-webkit-keyframes loading {
+  0% {
+    opacity:1;
+    -webkit-transform:  translate(0px,0px) rotate(0deg);
+  }
+  50% {
+    opacity:0.25;
+    -webkit-transform:  translate(75px,0px) rotate(180deg);
+  }
+  100% {
+    opacity:1;
+    -webkit-transform:  translate(0px,0px) rotate(0deg);
+  }
+}

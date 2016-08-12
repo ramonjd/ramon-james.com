@@ -1,0 +1,18 @@
+@import "_variables";
+@import "_mixins";
+
+.header {
+    height:40px;
+    background-color: hsla(0, 0%, 0%, 0.75);
+    border-bottom: 4px solid hsla(0, 0%, 0%, 1);
+    color: hsla(360, 100%, 100%, 1);
+    nav {
+        @include vertical-align();
+    }
+    a {
+        color: hsla(360, 100%, 100%, 1);
+    }
+    &--header--scroll-and-fix {
+
+    }
+}

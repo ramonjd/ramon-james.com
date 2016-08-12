@@ -1,0 +1,14 @@
+.Nav {
+    .nav_list {
+        &__item {
+            list-style: none;
+            text-transform: uppercase;
+            display: inline-block;
+            &:hover,
+            &--active {
+                color: white;
+                background-color:black;
+            }
+        }
+    }
+}
