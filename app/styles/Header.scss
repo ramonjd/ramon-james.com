@@ -1,18 +1,29 @@
 @import "_variables";
 @import "_mixins";
-
+.Header {
+    margin-top:-60px;
+    height:60px;
+    text-align: center;
+}
 .header {
-    height:40px;
-    background-color: hsla(0, 0%, 0%, 0.75);
-    border-bottom: 4px solid hsla(0, 0%, 0%, 1);
-    color: hsla(360, 100%, 100%, 1);
+    height:60px;
+    color: white;
+    background-color: hsla(0, 0%, 0%, 0.77);
+    width: 100%;
+    transition: background-color 0.5s ease;
+    top: 0;
+    z-index:100;
+
+    &--scroll-and-fix {
+        position: fixed;
+        background-color: hsla(0, 0%, 0%, 0.97);
+        // transform: translate3d(0,0,0);
+        // backface-visibility: hidden;
+    }
     nav {
-        @include vertical-align();
+
     }
     a {
         color: hsla(360, 100%, 100%, 1);
-    }
-    &--header--scroll-and-fix {
-
     }
 }

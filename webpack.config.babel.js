@@ -45,14 +45,15 @@ const config = {
       }
     },
     {
-      test: /\.scss$/,
-      loaders: ['style', 'css', 'sass']
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
     },
     {
         test: /\.js$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/ 
-    }
+        exclude: /node_modules/
+    },
+    { test: /\.json$/, loader: 'json-loader' }
     ]
   }
 };

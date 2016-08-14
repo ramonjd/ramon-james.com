@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 
-class NoMatch extends Component {
+export default class NoMatch extends Component {
     render() {
         return (
             <div>
@@ -11,5 +11,3 @@ class NoMatch extends Component {
         )
     }
 }
-
-export default NoMatch

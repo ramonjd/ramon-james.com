@@ -4,7 +4,7 @@ if (process.env.WEBPACK_BUILD) {
     require('../styles/Root.scss')
 }
 
-class Root extends Component {
+export default class Root extends Component {
 
     renderInitialState() {
         const { initialState } = this.props
@@ -41,5 +41,3 @@ class Root extends Component {
         )
     }
 }
-
-export default Root

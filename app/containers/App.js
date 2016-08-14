@@ -1,31 +1,64 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-import classNames from 'classnames'
-import { StickyContainer, Sticky } from 'react-sticky'
+import Hero from '../components/Hero'
 import Header from '../components/Header'
+import events from '../utils/dom-events.js'
+import {
+    addResizeListener,
+    removeResizeListenter,
+    addScrollListener,
+    removeScrollListenter,
+    getViewportSize,
+    root } from '../utils/'
 
 if (process.env.WEBPACK_BUILD) {
     require('../styles/App.scss')
 }
 
 class App extends Component {
-
     constructor(props) {
         super(props)
-        this.handleStickyStateChange = this.handleStickyStateChange.bind(this)
-        this.state = { headerStuck: false }
+        this.headerShouldStick = this.headerShouldStick.bind(this)
+        this.state = {
+            heroHeight: 0
+        }
     }
 
-    handleStickyStateChange(headerStuckState) {
-        this.setState({ headerStuck: headerStuckState })
+    componentDidMount() {
+        addScrollListener()
+        addResizeListener()
+        this.setHeroHeight(getViewportSize())
+        events.on(root, 'resize.debounced', e => {
+            this.setHeroHeight(e.dimensions)
+        })
+    }
+
+    componentWillUnmount() {
+        events.off(root, 'resize.debounced', e => {
+            this.setHeroHeight(e.dimensions)
+        })
+        removeScrollListenter()
+        removeResizeListenter()
+    }
+
+    headerShouldStick(scrollTop, headerElement){
+        //console.log(scrollTop, getDimensions(headerElement))
+        // when scroll >= height of header
+        return (scrollTop >= headerElement.offsetTop && scrollTop >= this.state.heroHeight) ? true : false
+    }
+
+    setHeroHeight(dimensions) {
+        const { height } = dimensions
+        if (height > 350) {
+            this.setState({
+                heroHeight: height
+            })
+        }
     }
 
     render() {
         const { location } = this.props
         console.log('location', location)
-        const stickyClasses = classNames({
-            'sticky--stuck': this.state.headerStuck === true
-        })
         return (
           <div className='App'>
             <Helmet
@@ -36,15 +69,12 @@ class App extends Component {
                 { 'name': 'description', 'content': 'Writer, lawyer, web developer and other stuff' }
               ]}
             />
-            <StickyContainer>
-                <Sticky topOffset={200} className={ stickyClasses } onStickyStateChange={ this.handleStickyStateChange }>
-                    <Header headerStuck={ this.state.headerStuck }/>
-                </Sticky>
-                <main>
-                    { this.props.children }
-                </main>
-                <footer>Footer</footer>
-            </StickyContainer>
+            <Hero heroHeight={ this.state.heroHeight }/>
+            <Header headerShouldStick={ this.headerShouldStick }/>
+            <main>
+                { this.props.children }
+            </main>
+            <footer>Footer</footer>
           </div>
         )
     }

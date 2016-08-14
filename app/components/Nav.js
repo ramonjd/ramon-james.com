@@ -7,14 +7,16 @@ if (process.env.WEBPACK_BUILD) {
 
 const Nav = ({ listItems }) => {
     return (
-        <nav className='Nav'>
-            <ul className='nav_list'>
-                <li className='nav_list__item'><Link to='/'>Home</Link></li>
-                <li className='nav_list__item'><Link to='/'>Writing</Link></li>
-                <li className='nav_list__item'><Link to='/about'>About</Link></li>
-                <li className='nav_list__item'><Link to='/'>Contact</Link></li>
-            </ul>
-        </nav>
+        <div className='Nav nav-bar'>
+          <nav>
+              <ul className='nav_list'>
+                  <li className='nav_list__item'><Link to='/'>Home</Link></li>
+                  <li className='nav_list__item'><Link to='/'>Writing</Link></li>
+                  <li className='nav_list__item'><Link to='/about'>About</Link></li>
+                  <li className='nav_list__item'><Link to='/'>Contact</Link></li>
+              </ul>
+          </nav>
+        </div>
     )
 }
 

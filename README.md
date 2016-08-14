@@ -4,8 +4,14 @@
 https://github.com/brillout/awesome-react-components
 https://github.com/gilbox/react-track
 https://github.com/twitter-fabric/velocity-react
+http://tympanus.net/codrops/2015/11/12/animating-svg-menu-icon-segment/
+http://codepen.io/MyXoToD/post/howto-self-drawing-svg-animation
+http://gardenestudio.com.br/
 
-This boilerplate aims at solving the MVP (Minimal Viable Product) of a universal app while trying to keep the base unopinionated elsewhere and simple to read and extend.
+## Design inspiration
+http://codepen.io/MyXoToD/post/howto-self-drawing-svg-animation
+http://tympanus.net/codrops/2016/04/26/the-aviator-animating-basic-3d-scene-threejs/
+
 
 [![Dependency Status](https://david-dm.org/DominicTobias/universal-react.svg)](https://david-dm.org/DominicTobias/universal-react)
 

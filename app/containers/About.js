@@ -5,7 +5,6 @@ import { Link } from 'react-router'
 import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
 import { createMarkup, isPageContentReady } from '../utils/'
-import classNames from 'classnames'
 
 function mapStateToProps(state) {
     return {
@@ -31,12 +30,9 @@ export default class About extends Component {
         if (!isPageContentReady(page)) {
             return <p>Loading...</p>
         }
-        const heroClasses = classNames({
-            'hero-module hero-module--about': true
-        })
         return (
             <div className='container'>
-                <div className={ heroClasses }>
+                <div>
                     <h1>{ page.content.title }</h1>
                 </div>
                 <article dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>

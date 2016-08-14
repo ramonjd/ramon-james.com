@@ -21,10 +21,15 @@ body {
   color: $heading-text-color;
   //background-image: url("http://www.jamiecoulter.co.uk/dev/codepen/blurred_bg.jpg");
   //font-family: 'Raleway', sans-serif;
-  background-size: 100% 100%;
-  height: 100vh;
+  //background-size: 100% 100%;
+  min-height: 100%;
 }
 
+// common
+
+.block--show {
+    display: block !important;
+}
 
 // ------------- flex
 

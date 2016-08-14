@@ -78,7 +78,8 @@ const config = {
             fallbackLoader: 'style-loader',
             loader: ['css', 'sass']
           })
-      }
+      },
+      { test: /\.json$/, loader: 'json-loader' }
     ]
   }
 };
