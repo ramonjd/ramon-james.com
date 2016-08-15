@@ -25,10 +25,17 @@ body {
   min-height: 100%;
 }
 
-// common
+// ------------- utils
 
 .block--show {
     display: block !important;
+}
+
+// ------------- heros
+
+.hero-module {
+    min-height:350px;
+    background-color: hsla(0, 0%, 0%, 0.2);
 }
 
 // ------------- flex

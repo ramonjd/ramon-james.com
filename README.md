@@ -7,7 +7,7 @@ https://github.com/twitter-fabric/velocity-react
 http://tympanus.net/codrops/2015/11/12/animating-svg-menu-icon-segment/
 http://codepen.io/MyXoToD/post/howto-self-drawing-svg-animation
 http://gardenestudio.com.br/
-
+http://yakudoo.com/
 ## Design inspiration
 http://codepen.io/MyXoToD/post/howto-self-drawing-svg-animation
 http://tympanus.net/codrops/2016/04/26/the-aviator-animating-basic-3d-scene-threejs/

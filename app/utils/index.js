@@ -1,9 +1,9 @@
 import _throttle from 'lodash/throttle'
 import _debounce from 'lodash/debounce'
-import events from './dom-events'
+import _each from 'lodash/each'
 
-export const root = (typeof self === 'object' && self.self === self && self) || (typeof global === 'object' && global.global === global && global) || this
-const body = root.document ? root.document.body : {}
+const isClient = typeof document !== 'undefined'
+const body = isClient ? document.body : null
 
 export function createMarkup(escapedString) {
     return { __html: escapedString }
@@ -14,47 +14,35 @@ export function isPageContentReady(page) {
 }
 
 export function getDimensions(element = body) {
+    const dimensions = {}
     if (element) {
         const rect = element.getBoundingClientRect()
-        return {
-            height: rect.bottom - rect.top,
-            width: rect.right - rect.left
-        }
+        dimensions.height = rect.bottom - rect.top
+        dimensions.width = rect.right - rect.left
     }
+    return dimensions
 }
 
-export function getViewportSize(){
-    let e = root
+export function getViewportSize() {
+    let e = window
     let a = 'inner'
-    if (!('innerWidth' in root )) {
-      a = 'client'
-      e = root.document.documentElement || root.document.body
+    if (!('innerWidth' in window)) {
+        a = 'client'
+        e = document.documentElement || document.body
     }
-    return { width : e[ `${a}Width` ] , height : e[ `${a}Height` ] }
+    return {
+        width: e[`${a}Width`],
+        height: e[`${a}Height`]
+    }
 }
 
 export function getDocumentScrollTop() {
-    return (root.document && root.document.documentElement && root.document.documentElement.scrollTop) || body && body.scrollTop
+    return (isClient &&
+        document.documentElement &&
+        document.documentElement.scrollTop) || body && body.scrollTop
 }
 
-const scroll = _throttle(() => {
-    events.emit(root, 'scroll.throttle', { scroll: body.scrollTop })
-}, 10)
-
-const resize = _debounce(() => {
-    events.emit(root, 'resize.debounced', { dimensions: getViewportSize() })
-}, 100)
-
-export function addScrollListener() {
-    events.on(root, 'scroll', scroll)
-}
-export function removeScrollListenter() {
-    events.off(root, 'scroll', scroll)
-}
-
-export function addResizeListener() {
-    events.on(root, 'resize', resize)
-}
-export function removeResizeListenter() {
-    events.off(root, 'resize', resize)
+export function getPageFromLocation(location) {
+    const splitPath = location.pathname.split('/')
+    return splitPath[1] || 'home'
 }

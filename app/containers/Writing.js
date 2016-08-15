@@ -5,9 +5,8 @@ import { Link } from 'react-router'
 import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
 import { createMarkup, isPageContentReady } from '../utils/'
-import ThreeWorld from '../components/ThreeWorld'
 
-const pageId = 'home'
+const pageId = 'writing'
 
 function mapStateToProps(state) {
     return {
@@ -16,7 +15,7 @@ function mapStateToProps(state) {
 }
 
 @connect(mapStateToProps)
-export default class Home extends Component {
+export default class Writing extends Component {
 
     static readyOnActions(dispatch) {
         return Promise.all([
@@ -25,7 +24,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        Home.readyOnActions(this.props.dispatch)
+        Writing.readyOnActions(this.props.dispatch)
     }
 
     renderPage() {
@@ -40,18 +39,16 @@ export default class Home extends Component {
                 </div>
                 <article dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
             </div>
-        )
+            )
     }
 
     render() {
         return (
-            <div className="Home">
-                <Helmet title='home' />
-                <div className='hero-module hero-module--home'>
-                    <ThreeWorld />
-                </div>
+            <div className="Writing">
+                <Helmet title='writing' />
+                <div className='hero-module hero-module--writing'></div>
                 { this.renderPage() }
             </div>
-        )
+            )
     }
 }

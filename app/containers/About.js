@@ -6,9 +6,11 @@ import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
 import { createMarkup, isPageContentReady } from '../utils/'
 
+const pageId = 'about'
+
 function mapStateToProps(state) {
     return {
-        page: getPage(state.pages, 'about')
+        page: getPage(state.pages, pageId)
     }
 }
 
@@ -17,7 +19,7 @@ export default class About extends Component {
 
     static readyOnActions(dispatch) {
         return Promise.all([
-            dispatch(PageActions.fetchPageIfNeeded('about'))
+            dispatch(PageActions.fetchPageIfNeeded(pageId))
         ])
     }
 
@@ -42,8 +44,9 @@ export default class About extends Component {
 
     render() {
         return (
-            <div>
+            <div className="About">
                 <Helmet title='about' />
+                <div className='hero-module hero-module--about'></div>
                 { this.renderPage() }
             </div>
             )

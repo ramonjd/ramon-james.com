@@ -1,7 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { Router, match, RouterContext, browserHistory } from 'react-router'
+import { Router, match, RouterContext, browserHistory, applyRouterMiddleware } from 'react-router'
+import { useScroll } from 'react-router-scroll'
 import Helmet from 'react-helmet'
 import routes from './Routes'
 import { Provider } from 'react-redux'
@@ -15,7 +16,7 @@ if (isClient) {
 
     render(
         <Provider store={store}>
-            <Router history={browserHistory}>{routes}</Router>
+            <Router history={browserHistory} render={applyRouterMiddleware(useScroll())}>{routes}</Router>
         </Provider>,
         document.getElementById('root')
     )
