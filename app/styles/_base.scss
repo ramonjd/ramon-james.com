@@ -31,12 +31,16 @@ html {
 }
 
 body {
-  font-family: 'Avenir Next LT Pro Condensed', 'Helvetica', 'Arial MT Bold', sans-serif;
-  color: $heading-text-color;
+  font-family: $font-face-sans;
+  color: $color1;
   //background-image: url("http://www.jamiecoulter.co.uk/dev/codepen/blurred_bg.jpg");
   //font-family: 'Raleway', sans-serif;
   //background-size: 100% 100%;
   background: linear-gradient($color3, $color5);
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $font-face-serif;
 }
 
 a {
@@ -69,7 +73,6 @@ a {
 // ------------- heros
 
 .hero-module {
-    font-family: 'Archer Book', 'Georgia', 'Palatino Linotype', serif;
     height:350px;
     h1 {
         color: $color5;
@@ -94,6 +97,9 @@ a {
         text-align: center;
     }
     &--hero {
+        width: auto;
+    }
+    &--section {
         width: auto;
     }
 }

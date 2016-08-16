@@ -1,6 +1,14 @@
+@import "_variables";
+@import "_mixins";
+
 .Home {
     article {
         max-width: 50%;
         min-height: 400px;
+    }
+    h2 {
+        color: $color1;
+        font-size: 4rem;
+        margin-bottom:20px;
     }
 }

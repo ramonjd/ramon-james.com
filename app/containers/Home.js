@@ -37,6 +37,11 @@ export default class Home extends Component {
                 <div className='row flex__container'>
                     <article className='flex__container__item' dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
                 </div>
+                <div className='flex__container--text flex__container--text--section'>
+                    <h2 className='flex__container--text--item'>
+                        My work
+                    </h2>
+                </div>
                 <div className='row flex__container container__content--promos'>
                     <div className='flex__container__item block--color2'>
                         1
