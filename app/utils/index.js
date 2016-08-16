@@ -46,3 +46,27 @@ export function getPageFromLocation(location) {
     const splitPath = location.pathname.split('/')
     return splitPath[1] || 'home'
 }
+
+// const scroll = _throttle(() => {
+//     events.emit(window, 'scroll.throttle', { scroll: body.scrollTop })
+// }, 10)
+//
+// const resize = _debounce(() => {
+//     events.emit(window, 'resize.debounced', { dimensions: getViewportSize() })
+// , 100)
+//
+// export function addScrollListener() {
+//     events.on(window, 'scroll', scroll)
+// }
+//
+// export function removeScrollListenter() {
+//     events.off(window, 'scroll', scroll)
+// }
+//
+// export function addResizeListener() {
+//     events.on(window, 'resize', resize)
+// }
+//
+// export function removeResizeListenter() {
+//     events.off(window, 'resize', resize)
+// }

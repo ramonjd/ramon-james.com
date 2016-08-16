@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router'
 import classNames from 'classnames'
 
@@ -7,11 +7,6 @@ if (process.env.WEBPACK_BUILD) {
 }
 
 const navItems = [
-    {
-        id: 'home',
-        label: 'Home',
-        link: '/'
-    },
     {
         id: 'writing',
         label: 'Writing',

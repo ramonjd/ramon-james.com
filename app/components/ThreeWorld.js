@@ -1,4 +1,4 @@
-import React, { Component, Proptypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import world from '../world/'
 if (process.env.WEBPACK_BUILD) {
     require('../styles/ThreeWorld.scss')

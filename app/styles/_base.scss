@@ -3,6 +3,19 @@
 
 // ------------- reset and base
 
+@font-face {
+    font-family: 'Avenir Next LT Pro Condensed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Avenir Next LT Pro Condensed'), url('../../assets/fonts/AvenirNextLTPro-Cn.woff') format('woff');
+}
+@font-face {
+    font-family: 'Archer Book';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Archer Book'), url('../../assets/fonts/Archer-Book-Pro.woff') format('woff');
+}
+
 * {
   margin:0;
   padding:0;
@@ -13,29 +26,83 @@
 
 html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+
 }
 
 body {
-  background-color: #fff;
-  font-family: 'Helvetica', 'Arial MT Bold','Montserrat', sans-serif;
+  font-family: 'Avenir Next LT Pro Condensed', 'Helvetica', 'Arial MT Bold', sans-serif;
   color: $heading-text-color;
   //background-image: url("http://www.jamiecoulter.co.uk/dev/codepen/blurred_bg.jpg");
   //font-family: 'Raleway', sans-serif;
   //background-size: 100% 100%;
-  min-height: 100%;
+  background: linear-gradient($color3, $color5);
 }
 
-// ------------- utils
+a {
+    text-decorationblock--color1: none;
+}
 
-.block--show {
-    display: block !important;
+// ------------- blocks
+
+.block {
+    &--show {
+        display: block !important;
+    }
+    &--color1 {
+        background-color: $color1;
+    }
+    &--color2 {
+        background-color: $color2;
+    }
+    &--color3 {
+        background-color: $color3;
+    }
+    &--color4 {
+        background-color: $color4;
+    }
+    &--color5 {
+        background-color: $color5;
+    }
 }
 
 // ------------- heros
 
 .hero-module {
-    min-height:350px;
-    background-color: hsla(0, 0%, 0%, 0.2);
+    font-family: 'Archer Book', 'Georgia', 'Palatino Linotype', serif;
+    height:350px;
+    h1 {
+        color: $color5;
+        font-size: 5rem;
+        small {
+            display: block;
+            clear:left;
+            color: $color3;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+// ------------- heros
+
+.flex__container--text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    .flex__container--text--item {
+        text-align: center;
+    }
+    &--hero {
+        width: auto;
+    }
+}
+
+//
+.container__content--promos {
+    > div {
+        height: 300px;
+    }
 }
 
 // ------------- flex
@@ -43,13 +110,21 @@ body {
 .flex__container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start; //space-around
+    justify-content: space-around; //space-around
     align-items: flex-start;
     align-content: flex-start; // stretch
     .flex__container__item {
-        flex-grow: 1;
-        flex-basis: inherit;
+        padding: 10px;
+        flex: 1 100%;
+        flex-basis: 20%;
         align-self: stretch;
+        margin:5px;
+        &:first-child {
+            margin-left:0;
+        }
+        &:last-child {
+            margin-right:0;
+        }
         @include bp-medium {
             flex-basis: 10px;
         }

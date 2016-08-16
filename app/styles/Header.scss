@@ -1,22 +1,41 @@
 @import "_variables";
 @import "_mixins";
+
 .Header {
     height:60px;
     text-align: center;
+    position:relative;
 }
 .header {
     height:60px;
     color: white;
-    background-color: hsla(0, 0%, 0%, 0.77);
+    background-color: transparent;
     width: 100%;
     transition: background-color 0.5s ease;
     top: 0;
     z-index:100;
     position: fixed;
-    nav {
-
-    }
     a {
-        color: hsla(360, 100%, 100%, 1);
+        color: $color5;
+        transition: color 0.25s ease;
+        text-decoration: none;
+        &:hover {
+            color: $color4;
+        }
+    }
+    .text--title {
+        position:absolute;
+        height: 60px;
+        top: -10px;
+        left: 20px;
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+    &--extended {
+        background-color: $color1;
+        .text--title {
+            top: 20px;
+            opacity: 1;
+        }
     }
 }

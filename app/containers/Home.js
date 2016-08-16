@@ -5,7 +5,10 @@ import { Link } from 'react-router'
 import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
 import { createMarkup, isPageContentReady } from '../utils/'
-import ThreeWorld from '../components/ThreeWorld'
+
+if (process.env.WEBPACK_BUILD) {
+    require('../styles/Home.scss')
+}
 
 const pageId = 'home'
 
@@ -28,29 +31,48 @@ export default class Home extends Component {
         Home.readyOnActions(this.props.dispatch)
     }
 
-    renderPage() {
-        const { page } = this.props
-        if (!isPageContentReady(page)) {
-            return <p>Loading...</p>
-        }
+    renderPage(page) {
         return (
-            <div className='container'>
-                <div>
-                    <h1>{ page.content.title }</h1>
+            <div>
+                <div className='row flex__container'>
+                    <article className='flex__container__item' dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
                 </div>
-                <article dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
+                <div className='row flex__container container__content--promos'>
+                    <div className='flex__container__item block--color2'>
+                        1
+                    </div>
+                    <div className='flex__container__item block--color2'>
+                        2
+                    </div>
+                    <div className='flex__container__item block--color2'>
+                        3
+                    </div>
+                    <div className='flex__container__item block--color2'>
+                        4
+                    </div>
+                </div>
+
             </div>
         )
     }
 
     render() {
+        const { page } = this.props
+        if (!isPageContentReady(page)) {
+            return (<p>Loading...</p>)
+        }
         return (
-            <div className="Home">
+            <div className='Home'>
                 <Helmet title='home' />
                 <div className='hero-module hero-module--home'>
-                    <ThreeWorld />
+                    <div className='flex__container--text flex__container--text--hero'>
+                        <h1 className='flex__container--text--item'>
+                            { page.content.title }
+                            <small>{ page.content.slug }</small>
+                        </h1>
+                    </div>
                 </div>
-                { this.renderPage() }
+                { this.renderPage(page) }
             </div>
         )
     }
