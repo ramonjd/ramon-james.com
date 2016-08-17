@@ -1,1 +1,11 @@
 // http://mathayward.com/modular-css-with-sass-and-bem/
+.heading {
+    &__page {
+        font-size: 6rem;
+        margin-bottom:40px;
+    }
+    &__page--h2 {
+        font-size: 3rem;
+        margin-bottom:20px;
+    }
+}

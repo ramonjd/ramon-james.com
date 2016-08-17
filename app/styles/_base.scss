@@ -1,5 +1,6 @@
 @import "_variables";
 @import "_mixins";
+@import "_typography";
 
 // ------------- reset and base
 
@@ -17,26 +18,29 @@
 }
 
 * {
-  margin:0;
-  padding:0;
-  line-height:1;
-  border:0;
-  background:transparent;
+    margin:0;
+    padding:0;
+    line-height:1;
+    border:0;
+    background:transparent;
 }
 
 html {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    height: 100%;
 }
 
 body {
-  font-family: $font-face-sans;
-  color: $color1;
-  //background-image: url("http://www.jamiecoulter.co.uk/dev/codepen/blurred_bg.jpg");
-  //font-family: 'Raleway', sans-serif;
-  //background-size: 100% 100%;
-  background: linear-gradient($color3, $color5);
+    font-family: $font-face-sans;
+    color: $color1;
+    //background-image: url("http://www.jamiecoulter.co.uk/dev/codepen/blurred_bg.jpg");
+    //font-family: 'Raleway', sans-serif;
+    //background-size: 100% 100%;
+    background: linear-gradient($color3, $color5);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5 {
@@ -47,25 +51,50 @@ a {
     text-decorationblock--color1: none;
 }
 
+ul {
+    list-style: none;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
 // ------------- blocks
 
 .block {
     &--show {
         display: block !important;
     }
-    &--color1 {
+    &--border--color1 {
+        border: 8px solid $color1;
+    }
+    &--background--color1 {
         background-color: $color1;
     }
-    &--color2 {
+    &--border--color2 {
+        border: 8px solid $color2;
+    }
+    &--background--color2 {
         background-color: $color2;
     }
-    &--color3 {
+    &--border--color3 {
+        border: 8px solid $color3;
+    }
+    &--background--color3 {
         background-color: $color3;
     }
-    &--color4 {
+    &--border--color4 {
+        border: 8px solid $color4;
+    }
+    &--background--color4 {
         background-color: $color4;
     }
-    &--color5 {
+    &--border--color5 {
+        border: 8px solid $color5;
+    }
+    &--background--color5 {
         background-color: $color5;
     }
 }
@@ -90,6 +119,7 @@ a {
 
 .flex__container--text {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -105,9 +135,25 @@ a {
 }
 
 //
-.container__content--promos {
-    > div {
-        height: 300px;
+.container {
+    &__content {
+        margin-bottom: 40px;
+    }
+    &__page {
+        margin: 40px auto;
+        max-width: 60%;
+        &--home {
+            margin: 0;
+            max-width: auto;
+        }
+    }
+    &--last {
+        margin-bottom: 80px;
+    }
+    &__content--promos {
+        > div {
+            height: 300px;
+        }
     }
 }
 

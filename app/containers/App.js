@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
+
 import {
     getPageFromLocation
 } from '../utils/'
@@ -29,7 +31,7 @@ class App extends Component {
             <main>
                 { this.props.children }
             </main>
-            <footer>Footer</footer>
+            <Footer />
           </div>
         )
     }

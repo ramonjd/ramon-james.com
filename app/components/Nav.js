@@ -16,11 +16,6 @@ const navItems = [
         id: 'about',
         label: 'About',
         link: '/about'
-    },
-    {
-        id: 'contact',
-        label: 'Contact',
-        link: '/contact'
     }
 ]
 

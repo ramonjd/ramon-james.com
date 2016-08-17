@@ -55,7 +55,6 @@ function handleRoute(res, renderProps) {
     const readyOnAllActions = renderProps.components
         .filter((component) => component.readyOnActions)
         .map((component) => component.readyOnActions(store.dispatch, renderProps.params))
-
     Promise
         .all(readyOnAllActions)
         .then(() => res.status(status).send(renderComponentWithRoot(RouterContext, renderProps, store)))

@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
 import { createMarkup, isPageContentReady } from '../utils/'
+import classNames from 'classnames'
 
 if (process.env.WEBPACK_BUILD) {
     require('../styles/Home.scss')
@@ -32,31 +33,40 @@ export default class Home extends Component {
     }
 
     renderPage(page) {
+        const flexContainerItemClasses = classNames({
+            'flex__container__item block--background--color5': true
+        })
         return (
-            <div>
+            <div className='container container__page--home'>
                 <div className='row flex__container'>
                     <article className='flex__container__item' dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
                 </div>
                 <div className='flex__container--text flex__container--text--section'>
                     <h2 className='flex__container--text--item'>
-                        My work
+                        My Work
                     </h2>
                 </div>
                 <div className='row flex__container container__content--promos'>
-                    <div className='flex__container__item block--color2'>
+                    <div className={ flexContainerItemClasses }>
                         1
                     </div>
-                    <div className='flex__container__item block--color2'>
+                    <div className={ flexContainerItemClasses }>
                         2
                     </div>
-                    <div className='flex__container__item block--color2'>
+                </div>
+                <div className='row flex__container container__content--promos container--last'>
+                    <div className={ flexContainerItemClasses }>
                         3
                     </div>
-                    <div className='flex__container__item block--color2'>
+                    <div className={ flexContainerItemClasses }>
                         4
                     </div>
                 </div>
-
+                <div className='flex__container--text flex__container--text--section'>
+                    <h2 className='flex__container--text--item'>
+                        Web
+                    </h2>
+                </div>
             </div>
         )
     }

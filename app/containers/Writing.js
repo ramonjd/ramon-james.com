@@ -33,9 +33,9 @@ export default class Writing extends Component {
             return <p>Loading...</p>
         }
         return (
-            <div className='container'>
+            <div className='container container__page'>
                 <div>
-                    <h1>{ page.content.title }</h1>
+                    <h1 className='heading heading__page' dangerouslySetInnerHTML={ createMarkup(page.content.title) }></h1>
                 </div>
                 <article dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
             </div>
@@ -46,7 +46,6 @@ export default class Writing extends Component {
         return (
             <div className="Writing">
                 <Helmet title='writing' />
-                <div className='hero-module hero-module--writing'></div>
                 { this.renderPage() }
             </div>
             )

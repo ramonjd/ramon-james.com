@@ -4,11 +4,14 @@
 .Home {
     article {
         max-width: 50%;
-        min-height: 400px;
+        min-height: 250px;
     }
     h2 {
-        color: $color1;
+        color: $color2;
         font-size: 4rem;
-        margin-bottom:20px;
+        border-bottom: 8px solid;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        min-width: 400px;
     }
 }

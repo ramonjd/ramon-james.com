@@ -9,6 +9,7 @@ if (process.env.WEBPACK_BUILD) {
 }
 
 const HeaderScrollListener = new ScrollListener()
+HeaderScrollListener.scrollTimeoutDelay = 250
 
 export default class Header extends Component {
     static propTypes = {
