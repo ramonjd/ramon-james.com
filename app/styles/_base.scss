@@ -48,7 +48,11 @@ h1, h2, h3, h4, h5 {
 }
 
 a {
-    text-decorationblock--color1: none;
+    color: $color2;
+    &:hover {
+        color: $color1;
+        text-decoration: none;
+    }
 }
 
 ul {
@@ -56,7 +60,7 @@ ul {
 }
 
 p {
-    margin-bottom: 15px;
+    margin-bottom: 40px;
     font-size: 1.4rem;
     line-height: 1.4;
 }
@@ -134,7 +138,15 @@ p {
     }
 }
 
-//
+// ------------- row
+
+.row {
+    clear: both;
+    margin-bottom:40px;
+}
+
+// ------------- content containers
+
 .container {
     &__content {
         margin-bottom: 40px;

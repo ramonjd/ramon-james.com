@@ -44,12 +44,16 @@ export default class Header extends Component {
     render() {
         const headerClasses = classNames({
             'header': true,
-            'header--extended': this.state.scrollTriggered || this.props.currentPage !== 'home'
+            'header--extended': this.state.scrollTriggered
+        })
+        const titleClasses = classNames({
+            'text--title': true,
+            'text--title--active': this.state.scrollTriggered || this.props.currentPage !== 'home'
         })
         return (
             <div className='Header'>
                 <header className={ headerClasses }>
-                    <div className='text--title'>
+                    <div className={ titleClasses }>
                         <Link to='/'>ramon james</Link>
                     </div>
                     <Nav { ...this.props } />

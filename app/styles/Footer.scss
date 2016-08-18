@@ -3,6 +3,9 @@
 
 .Footer {
     min-height:400px;
+    footer > div:first-child {
+        margin: 0 15%;
+    }
     h2 {
         color: $color2;
         font-size: 4rem;
@@ -11,25 +14,56 @@
         margin-bottom: 40px;
         min-width: 400px;
     }
-}
 
-.partisan { position: absolute; bottom: 0; left: 0; width: 38em; padding: 4.5em 7.5em 1.5em 5.5em; }
-.partisan__bg { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.5; }
-.partisan__link { position: relative; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; -webkit-align-items: center; align-items: center; }
-.partisan__img, .partisan__title { opacity: 0.85; -webkit-transition: opacity 0.1s; transition: opacity 0.1s; }
-.partisan__link:hover .partisan__img, .partisan__link:hover .partisan__title { opacity: 1; }
-.partisan__img { max-width: 42%; }
-.partisan__title { font-family: 'Playfair Display'; font-weight: bold; position: relative; margin: 0.5em 0 0 0.85em; color: #555d27; }
-.partisan__title::before { content: 'Sponsored by:'; font-size: 0.5em; font-weight: bold; position: absolute; bottom: 100%; left: 0; padding: 0 0 1em 0; letter-spacing: 0.25em; text-transform: uppercase; color: #95a534; }
-@media screen and (max-width:80em) {
-	.partisan { font-size: 76%; }
-	.partisan__title::before { font-size: 0.25em; }
-}
-@media screen and (max-width:60em) {
-	.game-holder .message--instructions { bottom: 5.5em; }
-	.partisan { width: 100%; height: auto; padding: 1.75em 0.5em 0.5em; text-align: center; background: rgba(190, 215, 48, 0.5); }
-	.partisan__bg { display: none; }
-	.partisan__img { display: none; }
-	.partisan__title { margin: 0; }
-	.partisan__title::before { width: 100%; padding: 0 0 0.25em; }
+    .container__svg {
+        position: relative;
+        overflow: hidden;
+        height: 400px;
+        polygon {
+            stroke-width: 1px;
+            stroke: none;
+        }
+        path {
+            fill: none;
+            stroke-opacity: 0.7;
+            stroke-width: 35px;
+        }
+    }
+    .svg {
+        &__rainbow {
+            position: absolute;
+            bottom: -20px;
+        }
+        &__mountain {
+            &__base {
+                position: absolute;
+                bottom: -10px;
+                z-index:100;
+                &--right {
+                    right: -25px;
+                    polygon {
+                        fill-opacity: 0.4;
+                    }
+                    &--over {
+                        right: -50px;
+                        bottom: -30px;
+                        z-index:200;
+                    }
+                }
+                &--left {
+                    left: -25px;
+                    margin-left:-5%;
+                    polygon {
+                        fill-opacity: 0.4;
+                    }
+                    &--over {
+                        left: -50px;
+                        bottom: -30px;
+                        z-index:200;
+                    }
+                }
+            }
+        }
+    }
+
 }

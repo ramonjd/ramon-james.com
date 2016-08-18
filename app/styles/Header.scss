@@ -30,12 +30,12 @@
         left: 20px;
         opacity: 0;
         transition: all 0.5s ease;
-    }
-    &--extended {
-        background-color: $color1;
-        .text--title {
+        &--active {
             top: 20px;
             opacity: 1;
         }
+    }
+    &--extended {
+        background-color: $color1;
     }
 }
