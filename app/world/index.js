@@ -12,8 +12,8 @@ var controls;
 var ambientLight;
 var hemisphereLight;
 var shadowLight;
-var terrain;
-var Terrain;
+var sun;
+var Sun;
 var newTime;
 var deltaTime;
 var oldTime;
@@ -32,17 +32,21 @@ var deltaTime = 0;
 var newTime = new Date().getTime();
 var oldTime = new Date().getTime();
 var mousePos = { x: 0, y: 0 };
+var zoomFactor = 1;
+var zoomIncrement = -0.001;
 
 function reset() {
     world = {
         terrainRadius: 800,
         terrainLength: 800,
-        wavesMinAmp: 5,
-        wavesMaxAmp: 20,
-        wavesMinSpeed: 0.0005,
-        wavesMaxSpeed: 0.002,
+        coronaMinAmp: 5,
+        coronaMaxAmp: 20,
+        coronaMinSpeed: 0.0005,
+        coronaMaxSpeed: 0.002,
         speed: 0,
-        cameraSensivity:0.002
+        cameraSensivity:0.002,
+        cameraZPositionMax: 1000,
+        cameraZPositionMin: 300
     };
 }
 
@@ -114,7 +118,7 @@ function createScene() {
     );
   scene.fog = new THREE.Fog(0xf7d9aa, 100, 950);
   camera.position.x = 0;
-  camera.position.z = 1000;
+  camera.position.z = 3000;
   camera.position.y = 0;
   //camera.lookAt(new THREE.Vector3(0, 400, 0));
   renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -134,43 +138,45 @@ function createScene() {
   */
 }
 
-Terrain = function() {
-  //var geom = new THREE.CylinderGeometry(world.terrainRadius, world.terrainRadius, world.terrainLength, 40, 10);
-  var geom = new THREE.SphereGeometry(400, 32, 32)
-  geom.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI/2));
-  geom.mergeVertices();
-  var l = geom.vertices.length;
-  this.waves = [];
+Sun = function() {
+  //var geometry = new THREE.CylinderGeometry(world.terrainRadius, world.terrainRadius, world.terrainLength, 40, 10);
+  var geometry = new THREE.SphereGeometry(400, 32, 32)
+  geometry.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI/2));
+  geometry.mergeVertices();
+  var l = geometry.vertices.length;
+  this.flares = [];
   for (var i=0; i<l; i++){
-    var v = geom.vertices[i];
+    var v = geometry.vertices[i];
     //v.y = Math.random()*30;
-    this.waves.push({
+    this.flares.push({
         y: v.y,
         x: v.x,
         z: v.z,
         ang: Math.random() * Math.PI * 2,
-        amp: world.wavesMinAmp + Math.random() * (world.wavesMaxAmp - world.wavesMinAmp),
-        speed: world.wavesMinSpeed + Math.random() * (world.wavesMaxSpeed - world.wavesMinSpeed)
+        amp: world.coronaMinAmp + Math.random() * (world.coronaMaxAmp - world.coronaMinAmp),
+        speed: world.coronaMinSpeed + Math.random() * (world.coronaMaxSpeed - world.coronaMinSpeed)
     });
   };
-  var mat = new THREE.MeshPhongMaterial({
-    color: Colors.red,
-    transparent: true,
-    opacity: .8,
-    shading: THREE.FlatShading
-  });
+  var material = new THREE.MeshBasicMaterial( {color: Colors.red} );
 
-  this.mesh = new THREE.Mesh(geom, mat);
-  this.mesh.name = 'waves';
+  // var material = new THREE.MeshPhongMaterial({
+  //   color: Colors.red,
+  //   transparent: true,
+  //   opacity: .8,
+  //   shading: THREE.FlatShading
+  // });
+
+  this.mesh = new THREE.Mesh(geometry, material);
+  this.mesh.name = 'flares';
   this.mesh.receiveShadow = true;
 }
 
-Terrain.prototype.moveWaves = function (){
+Sun.prototype.moveCorona = function (){
   var verts = this.mesh.geometry.vertices;
   var l = verts.length;
   for (var i=0; i<l; i++){
     var v = verts[i];
-    var vprops = this.waves[i];
+    var vprops = this.flares[i];
     v.x =  vprops.x + Math.sin(vprops.ang) * vprops.amp;
     v.y = vprops.y + Math.sin(vprops.ang) * vprops.amp;
     vprops.ang += vprops.speed * deltaTime;
@@ -178,11 +184,11 @@ Terrain.prototype.moveWaves = function (){
   }
 }
 
-function createTerrain() {
-  terrain = new Terrain();
+function createSun() {
+  sun = new Sun();
   //terrain.mesh.position.y = world.terrainRadius;
-  terrain.mesh.position.y = 300;
-  scene.add(terrain.mesh);
+  sun.mesh.position.y = 400;
+  scene.add(sun.mesh);
 }
 
 
@@ -191,18 +197,28 @@ function loop(){
   newTime = new Date().getTime();
   deltaTime = newTime - oldTime;
   oldTime = newTime;
-  terrain.mesh.rotation.z += world.speed * deltaTime; //*game.seaRotationSpeed;
-  if (terrain.mesh.rotation.z > 2 * Math.PI) {
-      terrain.mesh.rotation.z -= 2 * Math.PI;
+  // sun.mesh.rotation.z += world.speed * deltaTime; //*game.seaRotationSpeed;
+  // if (sun.mesh.rotation.z > 2 * Math.PI) {
+  //     sun.mesh.rotation.z -= 2 * Math.PI;
+  // }
+  if (camera.position.z > 1000) {
+      camera.position.z -= 100;
   }
-  terrain.mesh.rotation.y += 0.0009;
-  terrain.mesh.rotation.y += 0.0009;
 
-  camera.fov = normalize(mousePos.x, -1, 1, 40, 80);
-  camera.updateProjectionMatrix ()
+
+
+  camera.updateProjectionMatrix();
   ambientLight.intensity += (.5 - ambientLight.intensity) * deltaTime * 0.005;
-  terrain.moveWaves();
-  renderer.render(scene, camera);
+  sun.moveCorona();
+
+
+  if ( zoomFactor >= 0.98 ){
+      camera.fov = camera.fov * zoomFactor;
+      camera.updateProjectionMatrix();
+      zoomFactor += zoomIncrement;
+   }
+   renderer.render(scene, camera);
+
   requestAnimationFrame(loop);
 }
 
@@ -210,12 +226,8 @@ function init(event){
     reset();
     createScene();
     createLights();
-    createTerrain();
+    createSun();
     setTimeout(loop, 1000);
-    document.addEventListener('mousemove', handleMouseMove, false);
-    document.addEventListener('touchmove', handleTouchMove, false);
-    //document.addEventListener('mouseup', handleMouseUp, false);
-    //document.addEventListener('touchend', handleTouchEnd, false);
 }
 
 window.addEventListener('load', init, false);
