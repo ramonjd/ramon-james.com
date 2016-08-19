@@ -1,3 +1,4 @@
+import config from '../config/'
 export const PAGE_INVALID = 'PAGE_INVALID'
 export const PAGE_FETCHING = 'PAGE_FETCHING'
 export const PAGE_FETCHED = 'PAGE_FETCHED'
@@ -6,7 +7,7 @@ export const PAGE_FETCH_FAILED = 'PAGE_FETCH_FAILED'
 function fetchPage(pageId) {
     return (dispatch) => {
         dispatch({ type: PAGE_FETCHING, pageId })
-        return fetch(`http://localhost:3000/pages/${pageId}.json`)
+        return fetch(`${config.apiHost}/pages/${pageId}.json`)
             .then((response) => {
                 return response.json()
             })

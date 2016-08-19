@@ -15,33 +15,28 @@ let ambientLight
 let hemisphereLight
 let shadowLight
 let sun
-let Sun
 const Colors = {
-    red:0xf25346,
-    white:0xd8d0d1,
-    brown:0x59332e,
-    brownDark:0x23190f,
-    pink:0xF5986E,
-    yellow:0xf4ce93,
-    blue:0x68c3c0
+    red: 0xd75461,
+    white: 0xf7f2F9,
+    yellow: 0xfbe5d3,
+    blue: 0x1a4c68
 }
 let world
 let deltaTime = 0
 let newTime = new Date().getTime()
 let oldTime = new Date().getTime()
-let zoomFactor = 1
-let zoomIncrement = -0.001
+const zoomFactor = 1
+const zoomIncrement = -0.01
 
 function reset() {
     world = {
-        terrainRadius: 800,
-        terrainLength: 800,
+        coronaRadius: 400,
         coronaMinAmp: 5,
         coronaMaxAmp: 20,
         coronaMinSpeed: 0.0005,
         coronaMaxSpeed: 0.002,
         speed: 0,
-        cameraSensivity:0.002,
+        cameraSensivity: 0.002,
         cameraZPositionMax: 1000,
         cameraZPositionMin: 300
     }
@@ -56,9 +51,9 @@ function handleWindowResize() {
 }
 
 function createLights() {
-    hemisphereLight = new THREE.HemisphereLight(0xaaaaaa, 0x000000, .9)
-    ambientLight = new THREE.AmbientLight(0xFFEDB9, .5)
-    shadowLight = new THREE.DirectionalLight(0xffffff, .9)
+    hemisphereLight = new THREE.HemisphereLight(0xaaaaaa, 0x000000, 0.9)
+    ambientLight = new THREE.AmbientLight(0xFFEDB9, 0.5)
+    shadowLight = new THREE.DirectionalLight(0xffffff, 0.9)
     shadowLight.position.set(150, 350, 350)
     shadowLight.castShadow = true
     shadowLight.shadow.camera.left = -400
@@ -69,7 +64,6 @@ function createLights() {
     shadowLight.shadow.camera.far = 1000
     shadowLight.shadow.mapSize.width = 4096
     shadowLight.shadow.mapSize.height = 4096
-    let ch = new THREE.CameraHelper(shadowLight.shadow.camera)
     scene.add(hemisphereLight)
     scene.add(shadowLight)
     scene.add(ambientLight)
@@ -81,7 +75,7 @@ function createScene() {
     scene = new THREE.Scene()
     aspectRatio = WIDTH / HEIGHT
     fieldOfView = 50
-    nearActor = .1
+    nearActor = 0.1
     farActor = 10000
     camera = new THREE.PerspectiveCamera(
         fieldOfView,
@@ -89,9 +83,9 @@ function createScene() {
         nearActor,
         farActor
     )
-    scene.fog = new THREE.Fog(0xf7d9aa, 100, 950)
+    scene.fog = new THREE.Fog(Colors.white, 100, 950)
     camera.position.x = 0
-    camera.position.z = 3000
+    camera.position.z = 750
     camera.position.y = 0
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
     renderer.setSize(WIDTH, HEIGHT)
@@ -101,14 +95,14 @@ function createScene() {
     window.addEventListener('resize', handleWindowResize, false)
 }
 
-Sun = function() {
-    let geometry = new THREE.SphereGeometry(400, 32, 32)
-    geometry.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI/2))
+function Sun() {
+    const geometry = new THREE.SphereGeometry(400, 32, 32)
+    geometry.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI / 2))
     geometry.mergeVertices()
-    let l = geometry.vertices.length
+    const l = geometry.vertices.length
     this.flares = []
-    for (let i=0; i<l; i++){
-        let v = geometry.vertices[i]
+    for (let i = 0; i < l; i++) {
+        const v = geometry.vertices[i]
         this.flares.push({
             y: v.y,
             x: v.x,
@@ -118,46 +112,41 @@ Sun = function() {
             speed: world.coronaMinSpeed + Math.random() * (world.coronaMaxSpeed - world.coronaMinSpeed)
         })
     }
-    let material = new THREE.MeshBasicMaterial( {color: Colors.red} )
+    const material = new THREE.MeshBasicMaterial({ color: Colors.yellow })
     this.mesh = new THREE.Mesh(geometry, material)
     this.mesh.name = 'flares'
     this.mesh.receiveShadow = true
 }
 
-Sun.prototype.moveCorona = function (){
-    let verts = this.mesh.geometry.vertices
-    let l = verts.length
-    for (let i=0; i<l; i++){
-        let v = verts[i]
-        let vprops = this.flares[i]
-        v.x =  vprops.x + Math.sin(vprops.ang) * vprops.amp
+Sun.prototype.moveCorona = function moveCorona() {
+    const verts = this.mesh.geometry.vertices
+    const l = verts.length
+    for (let i = 0; i < l; i++) {
+        const v = verts[i]
+        const vprops = this.flares[i]
+        v.x = vprops.x + Math.sin(vprops.ang) * vprops.amp
         v.y = vprops.y + Math.sin(vprops.ang) * vprops.amp
-        vprops.ang += vprops.speed * deltaTime
+        vprops.ang = vprops.ang + (vprops.speed * deltaTime)
         this.mesh.geometry.verticesNeedUpdate = true
     }
 }
 
 function createSun() {
     sun = new Sun()
-    sun.mesh.position.y = world.coronaRadius
+    sun.mesh.position.y = world.coronaRadius - 100
     scene.add(sun.mesh)
 }
 
-function loop(){
+function loop() {
     newTime = new Date().getTime()
     deltaTime = newTime - oldTime
     oldTime = newTime
-    if (camera.position.z > 1000) {
-        camera.position.z -= 100
+    sun.mesh.rotation.y = sun.mesh.rotation.y + (world.speed * deltaTime) // *game.seaRotationSpeed;
+    if (sun.mesh.rotation.y > 2 * Math.PI) {
+        sun.mesh.rotation.y = sun.mesh.rotation.y - (2 * Math.PI)
     }
-    camera.updateProjectionMatrix()
-    ambientLight.intensity += (.5 - ambientLight.intensity) * deltaTime * 0.005
+    // ambientLight.intensity = ambientLight.intensity + ((0.5 - ambientLight.intensity) * deltaTime * 0.005)
     sun.moveCorona()
-    if ( zoomFactor >= 0.98 ) {
-        camera.fov = camera.fov * zoomFactor
-        camera.updateProjectionMatrix()
-        zoomFactor += zoomIncrement
-    }
     renderer.render(scene, camera)
     requestAnimationFrame(loop)
 }
@@ -165,7 +154,7 @@ function loop(){
 export function initSunHero(event) {
     reset()
     createScene()
-    createLights()
+    //createLights()
     createSun()
     setTimeout(loop, 3000)
 }
