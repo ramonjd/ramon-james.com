@@ -23,17 +23,8 @@
             stroke-width: 1px;
             stroke: none;
         }
-        path {
-            fill: none;
-            stroke-opacity: 0.7;
-            stroke-width: 35px;
-        }
     }
     .svg {
-        &__rainbow {
-            position: absolute;
-            bottom: -20px;
-        }
         &__mountain {
             &__base {
                 position: absolute;

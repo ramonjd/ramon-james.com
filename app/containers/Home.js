@@ -6,7 +6,6 @@ import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
 import { createMarkup, isPageContentReady } from '../utils/'
 import classNames from 'classnames'
-import { initSunHero } from '../world/sunHero'
 
 if (process.env.WEBPACK_BUILD) {
     require('../styles/Home.scss')
@@ -31,7 +30,6 @@ export default class Home extends Component {
 
     componentDidMount() {
         Home.readyOnActions(this.props.dispatch)
-        initSunHero()
     }
 
     renderPage(page) {

@@ -2,8 +2,11 @@ import _throttle from 'lodash/throttle'
 import _debounce from 'lodash/debounce'
 import _each from 'lodash/each'
 
-const isClient = typeof document !== 'undefined'
-const body = isClient ? document.body : null
+export function isClient() {
+    return typeof document !== 'undefined'
+}
+
+const body = isClient() ? document.body : null
 
 export function createMarkup(escapedString) {
     return { __html: escapedString }
@@ -24,16 +27,24 @@ export function getDimensions(element = body) {
 }
 
 export function getViewportSize() {
-    let e = window
-    let a = 'inner'
-    if (!('innerWidth' in window)) {
-        a = 'client'
-        e = document.documentElement || document.body
+    let element = window
+    let prefix = 'inner'
+    if (!('innerWidth' in element)) {
+        prefix = 'client'
+        element = document.documentElement || document.body
     }
     return {
-        width: e[`${a}Width`],
-        height: e[`${a}Height`]
+        width: element[`${prefix}Width`],
+        height: element[`${prefix}Height`]
     }
+}
+
+export function getDocumentHeight() {
+    return Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+    )
 }
 
 export function getDocumentScrollTop() {
