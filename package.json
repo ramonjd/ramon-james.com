@@ -25,7 +25,7 @@
   "homepage": "https://github.com/ramonjd/ramon-james.com",
   "scripts": {
     "start": "NODE_ENV=development node index",
-    "start-prod": "npm run build && NODE_ENV=production PORT=3000 node index",
+    "start-prod": "npm run build && NODE_ENV=production PORT=80 node index",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --config ./webpack.production.config.babel.js --progress",
     "test-mocha": "mocha --compilers js:babel-core/register 'test/**/*.spec.js'",
     "test": "NODE_ENV=test npm run test-mocha"
