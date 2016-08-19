@@ -35,6 +35,7 @@ export default function(callback) {
 
   server.use(express.static(path.resolve(__dirname, 'dist')));
   server.use(express.static(path.resolve(__dirname, 'api')));
+  server.use(express.static(path.resolve(__dirname, 'assets')));
 
   // Pull in development server before we define our routes
   if (process.env.NODE_ENV === 'development') {

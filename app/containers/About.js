@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
 import { createMarkup, isPageContentReady } from '../utils/'
+import Loading from '../components/Loading'
 
 const pageId = 'about'
 
@@ -30,7 +31,7 @@ export default class About extends Component {
     renderPage() {
         const { page } = this.props
         if (!isPageContentReady(page)) {
-            return <p>Loading...</p>
+            return (<Loading />)
         }
         return (
             <div className='container container__page'>

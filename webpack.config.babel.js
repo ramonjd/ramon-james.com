@@ -60,8 +60,12 @@ const config = {
         {
           test: /\.woff$/,
           loader: 'url?limit=50000',
-          include: path.join(__dirname, 'assets/fonts'),
-        }
+          include: path.join(__dirname, 'assets/fonts')
+      },
+      {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          loader: 'file'
+      }
     ]
   }
 };

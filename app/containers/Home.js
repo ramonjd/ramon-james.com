@@ -6,6 +6,7 @@ import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
 import { createMarkup, isPageContentReady } from '../utils/'
 import classNames from 'classnames'
+import Loading from '../components/Loading'
 
 if (process.env.WEBPACK_BUILD) {
     require('../styles/Home.scss')
@@ -48,7 +49,7 @@ export default class Home extends Component {
                 </div>
                 <div className='row flex__container container__content--promos'>
                     <div className={ flexContainerItemClasses }>
-                        1
+                        <img src='/images/the-bubble.jpg' />
                     </div>
                     <div className={ flexContainerItemClasses }>
                         2
@@ -74,7 +75,7 @@ export default class Home extends Component {
     render() {
         const { page } = this.props
         if (!isPageContentReady(page)) {
-            return (<p>Loading...</p>)
+            return (<Loading />)
         }
         return (
             <div className='Home'>
