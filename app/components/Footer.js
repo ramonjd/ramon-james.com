@@ -1,9 +1,10 @@
+import config from '../config/'
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import classNames from 'classnames'
 import Rainbow from './Rainbow'
 import ScrollListener from 'react-scroll-listener'
-import { isClient, getDocumentHeight, getViewportSize } from '../utils/'
+import { isClient, getDocumentHeight, getViewportSize, createMarkup } from '../utils/'
 
 if (process.env.WEBPACK_BUILD) {
     require('../styles/Footer.scss')
@@ -64,13 +65,17 @@ export default class Footer extends Component {
                 <footer>
                     <div className='flex__container--text flex__container--text--section'>
                         <h2 className='flex__container--text--item'>
-                            Get in touch
+                            <i className='material-icons md-36'>message</i> Get in touch
                         </h2>
                         <div className='flex__container--text--item'>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p>Email:</p>
-                            <p>GitHub https://github.com/ramonjd/ramon-james.com</p>
-                            <p>LinkedIn https://uk.linkedin.com/in/ramonjames</p>
+                            <p dangerouslySetInnerHTML={ createMarkup(config.siteContent.footer.body) }></p>
+                            <p className='footer__links'>
+                                <i className='material-icons md-18'>format_align_right</i>
+                                <strong><a href="mailto:hello@ramon-james.com">hello@ramon-james.com</a></strong>
+                                <strong><a href="https://github.com/ramonjd/ramon-james.com">GitHub</a></strong>
+                                <strong><a href="https://uk.linkedin.com/in/ramonjames">LinkedIn</a></strong>
+                                <i className='material-icons md-18'>format_align_left</i>
+                            </p>
                         </div>
                     </div>
                     <div className='container__svg' aria-hidden='true'>

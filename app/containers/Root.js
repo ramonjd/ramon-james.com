@@ -21,11 +21,11 @@ export default class Root extends Component {
     }
 
     renderVendorJS() {
-        return <script src="/vendor.min.js"></script>
+        return <script src='/vendor.min.js'></script>
     }
 
     renderCSS() {
-        return <link href="/app.css" rel="stylesheet" type="text/css" />
+        return <link href='/app.css' rel='stylesheet' type='text/css' />
     }
 
     render() {
@@ -37,6 +37,7 @@ export default class Root extends Component {
                     { head.title.toComponent() }
                     { head.meta.toComponent() }
                     { head.link.toComponent() }
+                    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
                     { process.env.NODE_ENV === 'production' ? this.renderCSS() : null }
                 </head>
                 <body>

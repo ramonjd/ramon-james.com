@@ -6,6 +6,12 @@
     footer > div:first-child {
         margin: 0 15%;
     }
+    .footer__links {
+        strong {
+            display: inline-block;
+            margin:0 8px;
+        }
+    }
     h2 {
         color: $color2;
         font-size: 4rem;
@@ -18,7 +24,7 @@
     .container__svg {
         position: relative;
         overflow: hidden;
-        height: 200px;
+        height: 210px;
         polygon {
             stroke-width: 1px;
             stroke: none;

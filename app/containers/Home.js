@@ -38,7 +38,7 @@ export default class Home extends Component {
         })
         return (
             <div className='container container__page--home'>
-                <div className='row flex__container'>
+                <div className='row row--margin flex__container'>
                     <article className='flex__container__item' dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
                 </div>
                 <div className='flex__container--text flex__container--text--section'>
