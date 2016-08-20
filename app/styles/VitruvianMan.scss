@@ -1,0 +1,44 @@
+@import "_variables";
+
+.VitruvianMan {
+    .svg--logo {
+        width:30px;
+        height:30px;
+        background:transparent;
+        transform: scale(3, 3);
+        opacity:0.5;
+        transition: opacity .25s ease-out;
+        .svg__group--logo {
+            line, circle {
+                fill:none;
+                stroke-width: 24;
+                stroke-miterlimit: 10;
+            }
+            &--fg {
+                line, circle {
+                    stroke: $color4;
+                }
+            }
+            &--bg {
+                opacity:0.6;
+                line {
+                    stroke: $color5;
+                }
+            }
+
+        }
+    }
+}
+@keyframes pulsate {
+    0% {opacity: 0.1}
+    10% {opacity: .20}
+    20% {opacity: .40 }
+    30% {opacity: .60 }
+    40% {opacity: .80 }
+    50% {opacity: 1.0}
+    60% {opacity: .80}
+    70% {opacity: .60}
+    80% {opacity: .40}
+    90% {opacity: .20}
+    100% {opacity: 0.1}
+}

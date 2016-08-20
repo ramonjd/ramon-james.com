@@ -1,0 +1,148 @@
+@import "_variables";
+@import "_mixins";
+
+.HomePromos {
+    overflow: hidden;
+    height: 100%;
+    img {
+        opacity: 0.5;
+    }
+    .promos--content {
+        color: $color5;
+        position: absolute;
+        bottom: 10px;
+        left: 15px;
+        h3 {
+            font-size: 1.5rem;
+        }
+        p {
+            font-size: .9rem;
+            opacity: 0;
+        }
+    }
+
+    @include bp-medium {
+        .block--animate {
+            &--left {
+                transform: translate(-20px);
+            }
+            &--right {
+                transform: translate(20px);
+            }
+        }
+    }
+
+    .container {
+        &__content--promos {
+            > div {
+                height: 150px;
+            }
+            @include bp-medium {
+                > div {
+                    height: 300px;
+                    &:hover {
+                        img {
+                            animation: grow ease-in 3s forwards;
+                        }
+                        .block--parallelogram--right {
+                            animation: reveal-parallelogram-right ease-out .5s forwards;
+                        }
+                        .block--parallelogram--left {
+                            animation: reveal-parallelogram-left ease-out .5s forwards;
+                        }
+                        .block--animate--right {
+                            animation: description-in-right ease-out .5s forwards;
+                        }
+                        .block--animate--left {
+                            animation: description-in-left ease-out .5s forwards;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .block {
+        &--parallelogram {
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background-color: $color1;
+            position: absolute;
+            z-index: 100;
+            opacity: 0.7;
+        }
+    }
+    @include bp-medium {
+        .block--parallelogram {
+            &--right {
+                transform: translate(56%);
+            }
+            &--left {
+                transform: translate(-56%);
+                .promos--content {
+                    left: auto;
+                    right: 15px;
+                    text-align: right;
+                    p {
+                        transform: translate(-20px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes description-in-right {
+    0% {
+        opacity: 0;
+        transform: translate(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+@keyframes description-in-left {
+    0% {
+        opacity: 0;
+        transform: translate(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+@keyframes grow {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes reveal-parallelogram-left {
+    0% {
+        opacity: 0.8;
+        transform: translate(-56%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-46%);
+    }
+}
+
+@keyframes reveal-parallelogram-right {
+    0% {
+        opacity: 0.8;
+        transform: translate(56%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(46%);
+    }
+}

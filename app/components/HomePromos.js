@@ -1,0 +1,95 @@
+import React, { PropTypes } from 'react'
+import classNames from 'classnames'
+import { createMarkup } from '../utils/'
+
+if (process.env.WEBPACK_BUILD) {
+    require('../styles/HomePromos.scss')
+}
+
+const HomePromos = ({ page }) => {
+    const flexContainerItemClasses = classNames({
+        'flex__container__item block--background--color5': true
+    })
+    return (
+        <div className='HomePromos'>
+            <div className='container container__page--home'>
+                <div className='row row--margin flex__container'>
+                    <article className='flex__container__item' dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
+                </div>
+                <div className='flex__container--text flex__container--text--section'>
+                    <h2 className='flex__container--text--item'>
+                        Novels
+                    </h2>
+                </div>
+                <div className='row flex__container container__content--promos container--last'>
+                    <div className={ flexContainerItemClasses }>
+                        1
+                    </div>
+                    <div className={ flexContainerItemClasses }>
+                        2
+                    </div>
+                </div>
+                <div className='flex__container--text flex__container--text--section'>
+                    <h2 className='flex__container--text--item'>
+                        Short stories and illustrations
+                    </h2>
+                </div>
+                <div className='row flex__container container__content--promos'>
+                    <div className={ flexContainerItemClasses }>
+                        <a href='http://illustratedshorts.com/category/short-stories/'>
+                            <div className='block--parallelogram block--parallelogram--left'>
+                                <div className='promos--content'>
+                                    <h3>Spam Bot confessional</h3>
+                                    <p className='block--animate--left'>Well, you could say I have abandonment issues...</p>
+                                </div>
+                            </div>
+                            <img src='/images/the-bubble.jpg' alt='The Bubble - Entry to the Observer Comic Competition'/>
+                        </a>
+                    </div>
+                    <div className={ flexContainerItemClasses }>
+                        <a href='http://illustratedshorts.com/the-bubble-my-first-and-befittingly-ignored-entry-to-the-2015-observercapecomica-graphic-short-story-competition/'>
+                            <div className='block--parallelogram block--parallelogram--right'>
+                                <div className='promos--content'>
+                                    <h3>The Bubble</h3>
+                                    <p className='block--animate--right'>A short comic about the property Armageddon</p>
+                                </div>
+                            </div>
+                            <img src='/images/the-bubble.jpg' alt='The Bubble - Entry to the Observer Comic Competition'/>
+                        </a>
+                    </div>
+                </div>
+                <div className='row flex__container container__content--promos container--last'>
+                    <div className={ flexContainerItemClasses }>
+                    <a href='http://illustratedshorts.com/category/short-stories/'>
+                        <div className='block--parallelogram block--parallelogram--left'>
+                            <div className='promos--content'>
+                                <h3>More short stories</h3>
+                                <p className='block--animate--left'>Shorts, flash fiction, poetry</p>
+                            </div>
+                        </div>
+                        <img src='/images/the-bubble.jpg' alt='The Bubble - Entry to the Observer Comic Competition'/>
+                    </a>
+                    </div>
+                    <div className={ flexContainerItemClasses }>
+                    <a href='http://illustratedshorts.com/the-bubble-my-first-and-befittingly-ignored-entry-to-the-2015-observercapecomica-graphic-short-story-competition/'>
+                        <div className='block--parallelogram block--parallelogram--right'>
+                            <div className='promos--content'>
+                                <h3>More illustrations</h3>
+                                <p className='block--animate--right'>Comics, doodles, sketches, digital art</p>
+                            </div>
+                        </div>
+                        <img src='/images/the-bubble.jpg' alt='The Bubble - Entry to the Observer Comic Competition'/>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        )
+        </div>
+    )
+}
+
+HomePromos.propTypes = {
+    page: PropTypes.object
+}
+
+export default HomePromos

@@ -1,5 +1,4 @@
 @import "_variables";
-@import "_mixins";
 
 .Header {
     height:60px;
@@ -30,12 +29,29 @@
         left: 20px;
         opacity: 0;
         transition: all 0.5s ease;
+        padding-left: 32px;
         &--active {
             top: 20px;
             opacity: 1;
         }
+        &:hover {
+            .svg--logo {
+                opacity:1;
+            }
+            .svg__group--logo--bg {
+                animation-name: pulsate;
+                animation-duration: 1.5s;
+                animation-timing-function: ease-out;
+                animation-iteration-count: infinite;
+            }
+        }
     }
     &--extended {
         background-color: $color1;
+    }
+    .VitruvianMan {
+        position: absolute;
+        top: -8px;
+        left: 0;
     }
 }

@@ -38,6 +38,7 @@ export default class Root extends Component {
                     { head.meta.toComponent() }
                     { head.link.toComponent() }
                     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
+                    <link rel='icon' type='image/png' href='/images/favicon.png' />
                     { process.env.NODE_ENV === 'production' ? this.renderCSS() : null }
                 </head>
                 <body>

@@ -65,6 +65,26 @@ p {
     line-height: 1.4;
 }
 
+abbr {
+    border-bottom: 1px dotted $color3;
+}
+
+// images
+.img--inline {
+    display: inline-block;
+    &--logo {
+        width:30px;
+        opacity: 0.7;
+    }
+}
+
+main {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+}
+
 // ------------- blocks
 
 .block {
@@ -167,11 +187,6 @@ p {
     &--last {
         margin-bottom: 80px;
     }
-    &__content--promos {
-        > div {
-            height: 300px;
-        }
-    }
 }
 
 // ------------- flex
@@ -188,6 +203,7 @@ p {
         align-self: stretch;
         margin:5px;
         overflow: hidden;
+        position: relative;
         &:first-child {
             margin-left:0;
         }
@@ -220,7 +236,9 @@ p {
 
 // ------------- icons
 
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+.material-icons {
+    &.md-24 { font-size: 24px; }
+    &.md-36 { font-size: 36px; }
+    &.md-48 { font-size: 48px; }
+    &.md-inline { transform: translate(0, 5px); }
+}

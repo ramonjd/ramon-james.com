@@ -3,6 +3,7 @@ import Nav from './Nav'
 import classNames from 'classnames'
 import ScrollListener from 'react-scroll-listener'
 import { Link } from 'react-router'
+import VitruvianMan from './VitruvianMan'
 
 if (process.env.WEBPACK_BUILD) {
     require('../styles/Header.scss')
@@ -54,6 +55,7 @@ export default class Header extends Component {
             <div className='Header'>
                 <header className={ headerClasses }>
                     <div className={ titleClasses }>
+                        <VitruvianMan />
                         <Link to='/'>ramon james</Link>
                     </div>
                     <Nav { ...this.props } />
