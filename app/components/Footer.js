@@ -53,7 +53,7 @@ export default class Footer extends Component {
             <div className='Footer'>
                 <footer>
                     <div className='flex__container--text flex__container--text--section'>
-                        <h2 className='flex__container--text--item'>
+                        <h2 className='flex__container--text--item heading__section--h2'>
                             <i className='material-icons md-36'>message</i> Get in touch
                         </h2>
                         <div className='flex__container--text--item'>

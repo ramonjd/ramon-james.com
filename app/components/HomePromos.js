@@ -17,7 +17,7 @@ const HomePromos = ({ page }) => {
                     <article className='flex__container__item' dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
                 </div>
                 <div className='flex__container--text flex__container--text--section'>
-                    <h2 className='flex__container--text--item'>
+                    <h2 className='flex__container--text--item heading__section--h2'>
                         Work
                     </h2>
                 </div>

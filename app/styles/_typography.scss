@@ -3,6 +3,20 @@
 @import "_mixins";
 
 .heading {
+
+    &__section--h2 {
+        color: $color2;
+        font-size: 3rem;
+        border-bottom: 8px solid;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        min-width: 300px;
+        @include bp-small {
+            font-size: 4rem;
+            min-width: 400px;
+        }
+    }
+
     &__page {
         font-size: 3rem;
         margin-bottom:20px;
@@ -15,13 +29,9 @@
     &__page--h2 {
         font-size: 2.5rem;
         margin-bottom:15px;
-        min-width: 300px;
         @include bp-medium {
             font-size: 3rem;
             margin-bottom: 20px;
-        }
-        @include bp-small {
-            min-width: 400px;
         }
         @include textShadow($color5);
     }
