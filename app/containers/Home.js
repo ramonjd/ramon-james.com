@@ -35,10 +35,14 @@ export default class Home extends Component {
         const Vivus = require('vivus')
         const backgroundSvg = new Vivus(
             'svg-container-home',
-            { duration: 1000, file: '/svg/bg.svg' },
-            onReady: obj => {
-                obj.el.style.opacity = 1
-            })
+            {
+                duration: 1000,
+                file: '/svg/bg.svg',
+                onReady: (obj) => {
+                    obj.el.style.opacity = 1
+                }
+            }
+            )
     }
 
     render() {
