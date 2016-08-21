@@ -1,6 +1,18 @@
 @import "_variables";
 @import "_mixins";
 .About {
+    .block--client-list {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        opacity: 0.5;
+        img {
+            width: 15%;
+        }
+    }
     .img--bio-pic {
         width: 100%;
         margin: 0 0 10px 0;

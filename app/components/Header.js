@@ -55,8 +55,10 @@ export default class Header extends Component {
             <div className='Header'>
                 <header className={ headerClasses }>
                     <div className={ titleClasses }>
+                        <Link to='/'>
                         <VitruvianMan />
-                        <Link to='/'>ramon james</Link>
+                            <span>ramon james</span>
+                        </Link>
                     </div>
                     <Nav { ...this.props } />
                 </header>

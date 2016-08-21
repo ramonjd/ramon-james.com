@@ -62,8 +62,11 @@ ul {
 
 p {
     margin-bottom: 40px;
-    font-size: 1.4rem;
+    font-size: 1.9rem;
     line-height: 1.4;
+    @include bp-small {
+        font-size: 1.4rem;
+    }
 }
 
 abbr {
@@ -176,7 +179,10 @@ main {
     }
     &__page {
         margin: 40px auto;
-        max-width: 60%;
+        max-width: 80%;
+        @include bp-small {
+            max-width: 60%;
+        }
         &--home {
             margin: 0;
             max-width: auto;

@@ -1,12 +1,19 @@
 @import "_variables";
+@import "_mixins";
 
 .Header {
-    height:60px;
+    height:100px;
     text-align: center;
     position:relative;
+    @include bp-small {
+        height: 60px;
+    }
 }
 .header {
-    height:60px;
+    height:100px;
+    @include bp-small {
+        height: 60px;
+    }
     color: white;
     background-color: transparent;
     width: 100%;
@@ -24,15 +31,23 @@
     }
     .text--title {
         position:absolute;
-        height: 60px;
         top: -10px;
         left: 20px;
         opacity: 0;
         transition: all 0.5s ease;
         padding-left: 32px;
+        span {
+            display: none;
+            @include bp-small {
+                display: inline;
+            }
+        }
         &--active {
-            top: 20px;
+            top: 25px;
             opacity: 1;
+            @include bp-small {
+                top: 20px;
+            }
         }
         &:hover {
             .svg--logo {

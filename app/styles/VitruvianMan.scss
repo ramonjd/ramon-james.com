@@ -1,9 +1,14 @@
 @import "_variables";
+@import "_mixins";
 
 .VitruvianMan {
     .svg--logo {
-        width:30px;
-        height:30px;
+        width:60px;
+        height:60px;
+        @include bp-small {
+            width:30px;
+            height:30px;
+        }
         background:transparent;
         transform: scale(3, 3);
         opacity:0.5;

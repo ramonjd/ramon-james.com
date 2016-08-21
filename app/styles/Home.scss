@@ -1,4 +1,5 @@
 @import "_variables";
+@import "_mixins";
 
 .Home {
     #svg-container-home {
@@ -8,10 +9,12 @@
         top: -100px;
         opacity: 0;
     }
-
     article {
-        max-width: 50%;
+        max-width: 80%;
         min-height: 250px;
+        @include bp-small {
+            max-width: 50%;
+        }
     }
     h2 {
         color: $color2;

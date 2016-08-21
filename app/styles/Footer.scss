@@ -8,18 +8,26 @@
     }
     .footer__links {
         strong {
-            display: inline-block;
-            margin:0 8px;
+            display: block;
+            margin:8px 0;
             transform: translate(0px,-3px);
+            @include bp-medium {
+                margin:0 8px;
+                display: inline-block;
+            }
         }
     }
     h2 {
         color: $color2;
-        font-size: 4rem;
+        font-size: 3rem;
         border-bottom: 8px solid;
         padding-bottom: 20px;
         margin-bottom: 40px;
-        min-width: 400px;
+        min-width: 300px;
+        @include bp-small {
+            font-size: 4rem;
+            min-width: 400px;
+        }
     }
 
     .container__svg {

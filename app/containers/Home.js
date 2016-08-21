@@ -42,8 +42,7 @@ export default class Home extends Component {
                     console.log(obj)
                     obj.parentEl.style.opacity = 0.75
                 }
-            }
-            )
+            })
     }
 
     render() {
@@ -64,7 +63,6 @@ export default class Home extends Component {
                     </div>
                 </div>
                 <HomePromos page={ page }/>
-                <div className='world' id="world"></div>
             </div>
         )
     }
