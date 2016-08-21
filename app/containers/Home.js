@@ -39,7 +39,8 @@ export default class Home extends Component {
                 duration: 1000,
                 file: '/svg/bg.svg',
                 onReady: (obj) => {
-                    obj.el.style.opacity = 1
+                    console.log(obj)
+                    obj.parentEl.style.opacity = 0.75
                 }
             }
             )
