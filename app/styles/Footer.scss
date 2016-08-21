@@ -33,7 +33,10 @@
     .container__svg {
         position: relative;
         overflow: hidden;
-        height: 210px;
+        height: 120px;
+        @include bp-small {
+            height: 210px;
+        }
         polygon {
             stroke-width: 1px;
             stroke: none;
