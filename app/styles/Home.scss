@@ -1,6 +1,14 @@
 @import "_variables";
 
 .Home {
+    #svg-container-home {
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+        top: -100px;
+        opacity: 0.75;
+    }
+
     article {
         max-width: 50%;
         min-height: 250px;
@@ -16,7 +24,6 @@
     img {
         width: 100%;
     }
-
 }
 
 .world {

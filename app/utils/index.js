@@ -53,3 +53,12 @@ export function getPageFromLocation(location) {
     const splitPath = location.pathname.split('/')
     return splitPath[1] || 'home'
 }
+
+// export function handleMouseMove(event) {
+//     return  { x: event.clientX, y: event.clientY }
+// }
+//
+// export function handleTouchMove(event) {
+//     event.preventDefault();
+//     return { x: event.touches[0].pageX, y: event.touches[0].pageY }
+// }

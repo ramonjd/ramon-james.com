@@ -33,6 +33,7 @@ html {
 body {
     font-family: $font-face-sans;
     color: $color1;
+    border-top: 8px solid $color1;
     //background-image: url("http://www.jamiecoulter.co.uk/dev/codepen/blurred_bg.jpg");
     //font-family: 'Raleway', sans-serif;
     //background-size: 100% 100%;
@@ -170,9 +171,6 @@ main {
 // ------------- content containers
 
 .container {
-    &__loading {
-
-    }
     &__content {
         margin-bottom: 40px;
     }
@@ -201,7 +199,7 @@ main {
         flex: 1 100%;
         flex-basis: 20%;
         align-self: stretch;
-        margin:5px;
+        margin: 5px;
         overflow: hidden;
         position: relative;
         &:first-child {
@@ -230,15 +228,42 @@ main {
     animation-duration:0.25s;
 }
 
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-webkit-keyframes fadeIn {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadeIn {
+    from {
+        opacity:0;
+    } to {
+        opacity:1;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity:0;
+    } to {
+        opacity:1;
+    }
+}
 
 // ------------- icons
 
 .material-icons {
-    &.md-24 { font-size: 24px; }
-    &.md-36 { font-size: 36px; }
-    &.md-48 { font-size: 48px; }
-    &.md-inline { transform: translate(0, 5px); }
+    &.md-24 {
+        font-size: 24px;
+    }
+    &.md-36 {
+        font-size: 36px;
+    }
+    &.md-48 {
+        font-size: 48px;
+    }
+    &.md-inline {
+        transform: translate(0, 5px);
+    }
 }

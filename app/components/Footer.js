@@ -10,17 +10,6 @@ if (process.env.WEBPACK_BUILD) {
     require('../styles/Footer.scss')
 }
 
-// let Velocity
-//
-// if (isClient() === true) {
-//     Velocity = require('velocity-animate')
-// }
-// Velocity(this.refs.rainbowArc1, {
-//     translateZ: 0, // Force HA by animating a 3D property
-//     translateX: '200px',
-//     rotateZ: '45deg'
-// }, 'easeInSine')
-
 const FooterScrollListener = new ScrollListener()
 
 export default class Footer extends Component {
@@ -72,7 +61,7 @@ export default class Footer extends Component {
                             <p className='footer__links'>
                                 <i className='material-icons md-18'>format_align_right</i>
                                 <strong><a href="mailto:hello@ramon-james.com">hello@ramon-james.com</a></strong>
-                                <strong><a href="https://github.com/ramonjd/ramon-james.com">GitHub</a></strong>
+                                <strong><a href="https://github.com/ramonjd">GitHub</a></strong>
                                 <strong><a href="https://uk.linkedin.com/in/ramonjames">LinkedIn</a></strong>
                                 <i className='material-icons md-18'>format_align_left</i>
                             </p>

@@ -4,57 +4,84 @@
 .HomePromos {
     overflow: hidden;
     height: 100%;
-    img {
-        opacity: 0.5;
-    }
-    .promos--content {
-        color: $color5;
+    position: relative;
+    .block__promo {
+        height: 100%;
+        width: 100%;
+        @include backgroundColor(3, 0.2);
         position: absolute;
-        bottom: 10px;
-        left: 15px;
-        h3 {
-            font-size: 1.5rem;
+        z-index: 10;
+        transition: all 0.15s ease-in;
+        .block__promo--content {
+            position: absolute;
+            z-index: 20;
+            top: 0px;
+            display: block;
+            height: 100%;
+            width: 100%;
+            padding:10px 15px 10px 15px;
+            background-color: $color1;
         }
+
         p {
-            font-size: .9rem;
+            height: 0;
+            margin: 0;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+        i {
             opacity: 0;
+            transition: opacity 0.75s ease-in;
+        }
+        h3 {
+            font-size: 2rem;
+            transform: translate(0px);
+        }
+        &:hover {
+            @include backgroundColor(5, 0);
+            p {
+                display: block;
+                height: auto;
+                animation: description-in-up ease-out .25s forwards;
+            }
+            i {
+                opacity: 1;
+            }
+        }
+        @include bp-medium {
+            .block__promo--content {
+                bottom: 10px;
+                top: auto;
+                display: inline-block;
+                padding:10px 25px 10px 25px;
+                height: auto;
+                width: auto;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+            h3 {
+                font-size: 3.4rem;
+            }
         }
     }
-
-    @include bp-medium {
-        .block--animate {
-            &--left {
-                transform: translate(-20px);
-            }
-            &--right {
-                transform: translate(20px);
-            }
-        }
-    }
-
     .container {
         &__content--promos {
             > div {
                 height: 150px;
+                a {
+                    color: $color5;
+                    &:hover {
+                        color: $color5;
+                    }
+                }
             }
             @include bp-medium {
                 > div {
                     height: 300px;
                     &:hover {
                         img {
-                            animation: grow ease-in 3s forwards;
-                        }
-                        .block--parallelogram--right {
-                            animation: reveal-parallelogram-right ease-out .5s forwards;
-                        }
-                        .block--parallelogram--left {
-                            animation: reveal-parallelogram-left ease-out .5s forwards;
-                        }
-                        .block--animate--right {
-                            animation: description-in-right ease-out .5s forwards;
-                        }
-                        .block--animate--left {
-                            animation: description-in-left ease-out .5s forwards;
+                            animation: grow ease-out 3s forwards;
                         }
                     }
                 }
@@ -114,6 +141,17 @@
     }
 }
 
+@keyframes description-in-up {
+    0% {
+        opacity: 0;
+        transform: translate(0px, 20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
 @keyframes grow {
     0% {
         opacity: 0.5;
@@ -127,12 +165,14 @@
 
 @keyframes reveal-parallelogram-left {
     0% {
-        opacity: 0.8;
-        transform: translate(-56%);
+        background-color: transparent;
+        opacity: 0;
+        transform: translate(-100px) skew(20deg);
     }
     100% {
+        background-color: $color1;
         opacity: 1;
-        transform: translate(-46%);
+        transform: translate(0) skew(0deg);
     }
 }
 

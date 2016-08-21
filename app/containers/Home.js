@@ -9,7 +9,6 @@ import classNames from 'classnames'
 import Loading from '../components/Loading'
 import HomePromos from '../components/HomePromos'
 
-
 if (process.env.WEBPACK_BUILD) {
     require('../styles/Home.scss')
 }
@@ -33,6 +32,8 @@ export default class Home extends Component {
 
     componentDidMount() {
         Home.readyOnActions(this.props.dispatch)
+        const Vivus = require('vivus')
+        const backgroundSvg = new Vivus('svg-container-home', { duration: 1000, file: '/svg/bg.svg' })
     }
 
     render() {
@@ -43,6 +44,7 @@ export default class Home extends Component {
         return (
             <div className='Home'>
                 <Helmet title='home' />
+                <div id='svg-container-home' />
                 <div className='hero-module hero-module--home'>
                     <div className='flex__container--text flex__container--text--hero'>
                         <h1 className='flex__container--text--item'>

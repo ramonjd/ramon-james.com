@@ -18,72 +18,58 @@ const HomePromos = ({ page }) => {
                 </div>
                 <div className='flex__container--text flex__container--text--section'>
                     <h2 className='flex__container--text--item'>
-                        Novels
-                    </h2>
-                </div>
-                <div className='row flex__container container__content--promos container--last'>
-                    <div className={ flexContainerItemClasses }>
-                        1
-                    </div>
-                    <div className={ flexContainerItemClasses }>
-                        2
-                    </div>
-                </div>
-                <div className='flex__container--text flex__container--text--section'>
-                    <h2 className='flex__container--text--item'>
-                        Short stories and illustrations
+                        Work
                     </h2>
                 </div>
                 <div className='row flex__container container__content--promos'>
                     <div className={ flexContainerItemClasses }>
-                        <a href='http://illustratedshorts.com/category/short-stories/'>
-                            <div className='block--parallelogram block--parallelogram--left'>
-                                <div className='promos--content'>
-                                    <h3>Spam Bot confessional</h3>
-                                    <p className='block--animate--left'>Well, you could say I have abandonment issues...</p>
+                        <a href='/writing'>
+                            <div className='block__promo'>
+                                <div className='block__promo--content'>
+                                    <h3>Sandbanker</h3>
+                                    <p>A novel</p>
                                 </div>
                             </div>
-                            <img src='/images/the-bubble.jpg' alt='The Bubble - Entry to the Observer Comic Competition'/>
+                            <img src='/images/sandbanker.jpg' alt='Abstract beach background for Sandbanker - A coming of age novel'/>
                         </a>
                     </div>
                     <div className={ flexContainerItemClasses }>
-                        <a href='http://illustratedshorts.com/the-bubble-my-first-and-befittingly-ignored-entry-to-the-2015-observercapecomica-graphic-short-story-competition/'>
-                            <div className='block--parallelogram block--parallelogram--right'>
-                                <div className='promos--content'>
-                                    <h3>The Bubble</h3>
-                                    <p className='block--animate--right'>A short comic about the property Armageddon</p>
+                        <a href='http://illustratedshorts.com/category/short-stories/'>
+                            <div className='block__promo'>
+                                <div className='block__promo--content'>
+                                    <h3>Short stories</h3>
+                                    <p>Shorts, flash fiction, poetry <i className='material-icons md-inline'>launch</i></p>
                                 </div>
                             </div>
-                            <img src='/images/the-bubble.jpg' alt='The Bubble - Entry to the Observer Comic Competition'/>
+                            <img src='/images/victorian-gentleman-wearing-shorts.jpg' alt='Victorian Gentleman wearing shorts'/>
                         </a>
                     </div>
                 </div>
-                <div className='row flex__container container__content--promos container--last'>
+                <div className='row flex__container container__content--promos'>
                     <div className={ flexContainerItemClasses }>
-                    <a href='http://illustratedshorts.com/category/short-stories/'>
-                        <div className='block--parallelogram block--parallelogram--left'>
-                            <div className='promos--content'>
-                                <h3>More short stories</h3>
-                                <p className='block--animate--left'>Shorts, flash fiction, poetry</p>
+                        <a href='http://illustratedshorts.com/the-bubble-my-first-and-befittingly-ignored-entry-to-the-2015-observercapecomica-graphic-short-story-competition/'>
+                            <div className='block__promo'>
+                                <div className='block__promo--content'>
+                                    <h3>The Bubble</h3>
+                                    <p>When will it burst? <i className='material-icons md-inline'>launch</i></p>
+                                </div>
                             </div>
-                        </div>
-                        <img src='/images/the-bubble.jpg' alt='The Bubble - Entry to the Observer Comic Competition'/>
-                    </a>
+                            <img src='/images/the-bubble.jpg' alt='The Bubble - Entry to the Observer Comic Competition'/>
+                        </a>
                     </div>
                     <div className={ flexContainerItemClasses }>
-                    <a href='http://illustratedshorts.com/the-bubble-my-first-and-befittingly-ignored-entry-to-the-2015-observercapecomica-graphic-short-story-competition/'>
-                        <div className='block--parallelogram block--parallelogram--right'>
-                            <div className='promos--content'>
-                                <h3>More illustrations</h3>
-                                <p className='block--animate--right'>Comics, doodles, sketches, digital art</p>
+                        <a href='http://illustratedshorts.com/illustrations/'>
+                            <div className='block__promo'>
+                                <div className='block__promo--content'>
+                                    <h3>Illustration</h3>
+                                    <p className='block--animate--right'>Doodles and digital art <i className='material-icons md-inline'>launch</i></p>
+                                </div>
                             </div>
-                        </div>
-                        <img src='/images/the-bubble.jpg' alt='The Bubble - Entry to the Observer Comic Competition'/>
-                    </a>
+                            <img src='/images/amsterdam.jpg' alt='Amsterdam rides a bike'/>
+                        </a>
                     </div>
                 </div>
             </div>
-        )
         </div>
     )
 }

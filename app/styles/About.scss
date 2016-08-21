@@ -1,0 +1,13 @@
+@import "_variables";
+@import "_mixins";
+.About {
+    .img--bio-pic {
+        width: 100%;
+        margin: 0 0 10px 0;
+        @include bp-small {
+            float: left;
+            width: 40%;
+            margin: 0 20px 0 0;
+        }
+    }
+}

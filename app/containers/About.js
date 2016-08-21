@@ -7,6 +7,10 @@ import { getPage } from '../selectors/'
 import { createMarkup, isPageContentReady } from '../utils/'
 import Loading from '../components/Loading'
 
+if (process.env.WEBPACK_BUILD) {
+    require('../styles/About.scss')
+}
+
 const pageId = 'about'
 
 function mapStateToProps(state) {
@@ -36,6 +40,7 @@ export default class About extends Component {
         return (
             <div className='container container__page'>
                 <div>
+                    <img className='img--bio-pic' src='/images/ramon-bio-pic.png' alt='Ramon bio pic' />
                     <h1 className='heading heading__page' dangerouslySetInnerHTML={ createMarkup(page.content.title) }></h1>
                 </div>
                 <article dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
