@@ -37,6 +37,9 @@
         @include bp-small {
             height: 210px;
         }
+        @include bp-large {
+            height: 425px;
+        }
         polygon {
             stroke-width: 1px;
             stroke: none;

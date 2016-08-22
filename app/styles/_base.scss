@@ -201,6 +201,9 @@ main {
     justify-content: space-around; //space-around
     align-items: flex-start;
     align-content: flex-start; // stretch
+    @include bp-small {
+        margin: 0 10%;
+    }
     .flex__container__item {
         flex: 1 100%;
         flex-basis: 20%;
