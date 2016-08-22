@@ -56,7 +56,7 @@ export default class Header extends Component {
                 <header className={ headerClasses }>
                     <div className={ titleClasses }>
                         <Link to='/'>
-                        <VitruvianMan />
+                            <VitruvianMan />
                             <span>ramon james</span>
                         </Link>
                     </div>

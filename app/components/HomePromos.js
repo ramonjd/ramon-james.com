@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import classNames from 'classnames'
 import { createMarkup } from '../utils/'
+import { Link } from 'react-router'
+
 
 if (process.env.WEBPACK_BUILD) {
     require('../styles/HomePromos.scss')
@@ -23,7 +25,7 @@ const HomePromos = ({ page }) => {
                 </div>
                 <div className='row flex__container container__content--promos'>
                     <div className={ flexContainerItemClasses }>
-                        <a href='/writing'>
+                        <Link to='/writing'>
                             <div className='block__promo'>
                                 <div className='block__promo--content'>
                                     <h3>Sandbanker</h3>
@@ -31,7 +33,7 @@ const HomePromos = ({ page }) => {
                                 </div>
                             </div>
                             <img src='/images/sandbanker.jpg' alt='Abstract beach background for Sandbanker - A coming of age novel'/>
-                        </a>
+                        </Link>
                     </div>
                     <div className={ flexContainerItemClasses }>
                         <a href='http://illustratedshorts.com/category/short-stories/'>
