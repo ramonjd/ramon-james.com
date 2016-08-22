@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import config from '../config/'
 
 if (process.env.WEBPACK_BUILD) {
     require('../styles/Root.scss')
@@ -39,6 +40,8 @@ export default class Root extends Component {
                     { head.link.toComponent() }
                     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
                     <link rel='icon' type='image/png' href='/images/favicon.png' />
+                    <meta name='description' content={ config.siteContent.description } />
+                    <meta name='keywords' content={ config.siteContent.keywords } />
                     { process.env.NODE_ENV === 'production' ? this.renderCSS() : null }
                 </head>
                 <body>
