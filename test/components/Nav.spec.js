@@ -8,6 +8,6 @@ const listItems = []
 describe('<Nav />', () => {
     it('should render correct list items', () => {
         const wrapper = shallow(<Nav listItems={ listItems }  />)
-        expect(wrapper.find('li')).to.have.length(4)
+        expect(wrapper.find('li')).to.have.length(2)
     })
 })

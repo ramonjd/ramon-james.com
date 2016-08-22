@@ -2,7 +2,7 @@ import path from 'path';
 import express from 'express';
 import webpackDevServer from './webpack.dev.server';
 import bodyParser from 'body-parser'
-
+import compression from 'compression'
 
 export default function(callback) {
 
@@ -13,6 +13,9 @@ export default function(callback) {
   server.set('port', process.env.PORT || 3000)
   server.use(bodyParser.json())
   server.use(bodyParser.urlencoded({extended: false}))
+  if (process.env.NODE_ENV === 'production') {
+      server.use(compression())
+  }
 
   global.__ENVIRONMENT__ = process.env.NODE_ENV || 'development';
 
@@ -39,7 +42,7 @@ export default function(callback) {
 
   // Pull in development server before we define our routes
   if (process.env.NODE_ENV === 'development') {
-    webpackDevServer(server)
+      webpackDevServer(server)
   }
 
   server.get('*', require('./app').serverMiddleware);

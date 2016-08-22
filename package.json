@@ -27,12 +27,13 @@
     "start": "NODE_ENV=development node index",
     "start-prod": "npm run build && NODE_ENV=production PORT=3000 node index",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --config ./webpack.production.config.babel.js --progress",
-    "test-mocha": "mocha --compilers js:babel-core/register 'test/**/*.spec.js'",
+    "test-mocha": "mocha --compilers js:babel-core/register --require ./test/helper.js 'test/**/*.spec.js'",
     "test": "NODE_ENV=test npm run test-mocha"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
     "classnames": "^2.2.5",
+    "compression": "^1.6.2",
     "express": "^4.14.0",
     "history": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
