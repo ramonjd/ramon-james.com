@@ -10,7 +10,10 @@
         flex-wrap: wrap;
         opacity: 0.5;
         img {
-            width: 15%;
+            width: auto;
+            height: 40px;
+            margin-right: 10px;
+            border:4px solid $color4;
         }
     }
     .img--bio-pic {
