@@ -60,9 +60,9 @@ export default class Footer extends Component {
                             <p dangerouslySetInnerHTML={ createMarkup(config.siteContent.footer.body) }></p>
                             <p className='footer__links'>
                                 <i className='material-icons md-18'>format_align_right</i>
-                                <strong><a href="mailto:hello@ramon-james.com">hello@ramon-james.com</a></strong>
-                                <strong><a href="https://github.com/ramonjd">GitHub</a></strong>
-                                <strong><a href="https://uk.linkedin.com/in/ramonjames">LinkedIn</a></strong>
+                                <strong><a href="mailto:hello@ramon-james.com" title='Send me mail'>hello@ramon-james.com</a></strong>
+                                <strong><a href="https://github.com/ramonjd" title='Repos and stuff'>GitHub</a></strong>
+                                <strong><a href="https://uk.linkedin.com/in/ramonjames" title='CV'>LinkedIn</a></strong>
                                 <i className='material-icons md-18'>format_align_left</i>
                             </p>
                         </div>
