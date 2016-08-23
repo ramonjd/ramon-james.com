@@ -1,0 +1,55 @@
+
+@mixin bp-large {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (min-width : 480px) {
+    @content;
+  }
+}
+
+@mixin textShadow($color) {
+    text-shadow: 1px 2px 0px $color;
+}
+
+@mixin backgroundColor($colorIndex: 1, $opacity: 1) {
+    @if $colorIndex == 2 {
+         background-color: hsla(354%, 62%, 59%, $opacity);
+    } @else if $colorIndex == 3 {
+         background-color: hsla(207%, 4%, 58%, $opacity);
+    } @else if $colorIndex == 4 {
+         background-color: hsla(27%, 83%, 91%, $opacity);
+    } @else if $colorIndex == 5 {
+         background-color: hsla(283%, 37%, 96%, $opacity);
+    } @else {
+         background-color: hsla(202%, 60%, 25%, $opacity);
+    }
+}
+
+@mixin clearFix(){
+  &:before,
+  &:after{
+    content: " ";
+    display: table;
+  }
+
+  &:after{
+    display: block;
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    visibility: hidden;
+  }
+  &{
+    *zoom: 1;
+  }
+}
