@@ -1,0 +1,9 @@
+@import "_variables";
+@import "_mixins";
+.NoMatch {
+    img {
+        width:50%;
+        margin:20px auto 0 auto;
+        border: 8px solid $color3;
+    }
+}
