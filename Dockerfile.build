@@ -1,0 +1,10 @@
+# https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md
+# https://blog.codeship.com/continuous-integration-and-delivery-with-docker/
+FROM node:6.3.1-slim
+RUN groupadd -r build && useradd -r -g build build
+RUN mkdir -p /tmp/build
+ADD . /tmp/build
+WORKDIR /tmp/build
+RUN npm install
+RUN NODE_ENV=production npm build
+CMD tar -czf - api dist assets index.js server.js
