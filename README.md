@@ -21,4 +21,4 @@ npm run start-prod
 ```
 
 ## CI()
-![Codeship badge](https://codeship.com/projects/f9a2cbd04b37013401a626219e586aaf/status?branch=master)
+![Codeship badge](https://codeship.com/projects/9b439960-4b47-0134-28ab-3eedfb4d574d/status?branch=master)
