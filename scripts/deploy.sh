@@ -14,7 +14,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
     # git config user.name "Travis CI"
     # git config user.email "ramonjd+travisCI@gmail.com"
     # git push --force deploy master
-    ssh deploy@ramon-james.com 'cd /var/www/ramon-james.com && git pull'
+    ssh deploy@ramon-james.com "cd /var/www/ramon-james.com && git pull"
 else
     echo "Not deploying, since this branch isn't master."
 fi
