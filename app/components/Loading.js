@@ -10,7 +10,7 @@ const Loading = () => {
             <div className='flex__container--text'>
                 <div>
                     <i className='material-icons md-24 icon__loading--animated icon__loading--animated--left'>format_align_right</i>
-                    <small>Loading</small>
+                    <small>Loading...</small>
                     <i className='material-icons md-24 icon__loading--animated icon__loading--animated--right'>format_align_left</i>
                 </div>
             </div>
