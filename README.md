@@ -19,3 +19,6 @@ Start production:
 ```
 npm run start-prod
 ```
+
+## CI
+Codeship
