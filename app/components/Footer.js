@@ -36,13 +36,11 @@ export default class Footer extends Component {
 
         if (this.state.scrollTriggered === false &&
             scrollPosition > triggerPoint) {
-            console.log('on')
             this.setState({
                 scrollTriggered: true
             })
         } else if (this.state.scrollTriggered === true &&
             scrollPosition < triggerPoint) {
-            console.log('off')
             this.setState({
                 scrollTriggered: false
             })
