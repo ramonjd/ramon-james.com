@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { createMarkup } from '../utils/'
 import { Link } from 'react-router'
 
-
 if (process.env.WEBPACK_BUILD) {
     require('../styles/HomePromos.scss')
 }
@@ -14,7 +13,7 @@ const HomePromos = ({ page }) => {
     })
     return (
         <div className='HomePromos'>
-            <div className='container container__page--home'>
+            <section className='container container__page--home'>
                 <div className='row row--margin flex__container'>
                     <article className='flex__container__item' dangerouslySetInnerHTML={ createMarkup(page.content.body) }></article>
                 </div>
@@ -71,7 +70,7 @@ const HomePromos = ({ page }) => {
                         </a>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     )
 }
