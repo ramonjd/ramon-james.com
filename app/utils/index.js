@@ -55,11 +55,19 @@ export function getPageFromLocation(location) {
 }
 
 export function showConsoleMessage() {
-    console.log('%c ☺ looking to hire a developer? get in touch => %chello@ramon-james.com', [
-        'font-family: Arial', 'background: #eee', 'color: black', 'display: block', 'line-height: 40px', 'text-align: center', 'font-weight: bold', 'padding:10px 5px 10px 10px'
-    ].join(';'), [
-        'font-family: Arial', 'background: #eee', 'color: #6699CC', 'display: block', 'line-height: 40px', 'text-align: center', 'font-weight: bold', 'padding: 10px 10px 10px 0'
-    ].join(';'))
+
+    if (isClient()) {
+        if (!window.sessionStorage.getItem('messageShown')) {
+            console.log('%c ☺ looking to hire a developer? get in touch => %chello@ramon-james.com', [
+                'font-family: Arial', 'background: #eee', 'color: black', 'display: block', 'line-height: 40px', 'text-align: center', 'font-weight: bold', 'padding:10px 5px 10px 10px'
+            ].join(';'), [
+                'font-family: Arial', 'background: #eee', 'color: #6699CC', 'display: block', 'line-height: 40px', 'text-align: center', 'font-weight: bold', 'padding: 10px 10px 10px 0'
+            ].join(';'))
+            window.sessionStorage.setItem('messageShown', 1)
+        }
+    }
+
+
 }
 
 // export function handleMouseMove(event) {
