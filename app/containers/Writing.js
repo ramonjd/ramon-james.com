@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
-import { createMarkup, isPageContentReady } from '../utils/'
+import { createMarkup, isPageContentReady, showConsoleMessage } from '../utils/'
 import Loading from '../components/Loading'
 
 const pageId = 'writing'
@@ -26,6 +26,7 @@ export default class Writing extends Component {
 
     componentDidMount() {
         Writing.readyOnActions(this.props.dispatch)
+        showConsoleMessage()
     }
 
     renderPage() {

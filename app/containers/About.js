@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
-import { createMarkup, isPageContentReady } from '../utils/'
+import { createMarkup, isPageContentReady, showConsoleMessage } from '../utils/'
 import Loading from '../components/Loading'
 
 if (process.env.WEBPACK_BUILD) {
@@ -30,6 +30,7 @@ export default class About extends Component {
 
     componentDidMount() {
         About.readyOnActions(this.props.dispatch)
+        showConsoleMessage()
     }
 
     renderPage() {
