@@ -32,6 +32,7 @@ export default class Home extends Component {
 
     componentDidMount() {
         Home.readyOnActions(this.props.dispatch)
+        showConsoleMessage()
         const Vivus = require('vivus')
         const backgroundSvg = new Vivus(
             'svg-container-home',
@@ -42,7 +43,6 @@ export default class Home extends Component {
                     obj.parentEl.style.opacity = 0.75
                 }
             })
-        showConsoleMessage()
     }
 
     render() {

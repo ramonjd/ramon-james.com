@@ -39,7 +39,8 @@ const config = {
         new webpack.optimize.UglifyJsPlugin({
             mangle: true,
             compress: {
-                warnings: false,
+                warnings: false,,
+                //drop_console: true
                 screw_ie8: true,
                 sequences: true,
                 dead_code: true,
@@ -53,8 +54,7 @@ const config = {
                 hoist_funs: true,
                 if_return: true,
                 join_vars: true,
-                cascade: true,
-                drop_console: true
+                cascade: true
             },
             output: {
                 comments: false
