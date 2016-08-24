@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import * as PageActions from '../actions/pages'
 import { getPage } from '../selectors/'
-import { isPageContentReady } from '../utils/'
+import { isPageContentReady, showConsoleMessage } from '../utils/'
 import classNames from 'classnames'
 import Loading from '../components/Loading'
 import HomePromos from '../components/HomePromos'
@@ -43,6 +43,7 @@ export default class Home extends Component {
                     obj.parentEl.style.opacity = 0.75
                 }
             })
+        showConsoleMessage()    
     }
 
     render() {
