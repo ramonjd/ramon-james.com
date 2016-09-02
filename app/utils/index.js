@@ -66,8 +66,6 @@ export function showConsoleMessage() {
             window.sessionStorage.setItem('messageShown', 1)
         }
     }
-
-
 }
 
 // export function handleMouseMove(event) {
