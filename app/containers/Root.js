@@ -38,6 +38,7 @@ export default class Root extends Component {
                     { head.title.toComponent() }
                     { head.meta.toComponent() }
                     { head.link.toComponent() }
+                    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
                     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
                     <link rel='icon' type='image/png' href='/images/favicon.png' />
                     <meta name='description' content={ config.siteContent.description } />
