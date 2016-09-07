@@ -7,7 +7,7 @@ import compression from 'compression'
 export default function(callback) {
 
   const server = express();
-
+  server.disable('x-powered-by') // Disable useless headers
   server.set('env', process.env.NODE_ENV)
   server.set('host', process.env.HOST || 'localhost')
   server.set('port', process.env.PORT || 3000)
