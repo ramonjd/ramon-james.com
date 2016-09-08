@@ -52,6 +52,7 @@ export default class Root extends Component {
                     { head.script.toComponent() }
                     { process.env.NODE_ENV === 'production' ? this.renderVendorJS() : null }
                     <script src={ process.env.NODE_ENV === 'development' ? '/app.js' : '/app.min.js' }></script>
+                    <canvas id='background-animated-gradient' class='canvas__background canvas__background--animated-gradient'></canvas>
                 </body>
             </html>
         )

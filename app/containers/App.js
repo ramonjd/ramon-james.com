@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
+import Granim from 'granium'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -12,7 +13,24 @@ if (process.env.WEBPACK_BUILD) {
 }
 
 class App extends Component {
-    componentDidMount() {}
+    componentDidMount() {
+        const granimInstance = new Granim({
+            element: '#background-animated-gradient',
+            name: 'background-animated-gradient',
+            direction: 'top-bottom',
+            opacity: [1, 1],
+            isPausedWhenNotInView: true,
+            states : {
+              'default-state': {
+                  gradients: [
+                      ['#AA076B', '#61045F'],
+                      ['#02AAB0', '#00CDAC'],
+                      ['#DA22FF', '#9733EE']
+                  ]
+              }
+            }
+        })
+    }
     componentWillUnmount() {}
     render() {
         const { location } = this.props
