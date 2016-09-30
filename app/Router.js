@@ -8,15 +8,21 @@ import routes from './Routes'
 import { Provider } from 'react-redux'
 import Root from './containers/Root'
 import configureStore from './configureStore'
+import ReactGA from 'react-ga'
+import config from './config/'
 
 const isClient = typeof document !== 'undefined'
 
 if (isClient) {
     const store = configureStore(window.__INITIAL_STATE__)
-
+    const logPageView = () => {
+        ReactGA.set({ page: window.location.pathname })
+        ReactGA.pageview(window.location.pathname)
+    }
+    ReactGA.initialize(config.gaID)
     render(
-        <Provider store={store}>
-            <Router history={browserHistory} render={applyRouterMiddleware(useScroll())}>{routes}</Router>
+        <Provider store={ store }>
+            <Router history={ browserHistory } render={ applyRouterMiddleware(useScroll()) } onUpdate={ logPageView }>{ routes }</Router>
         </Provider>,
         document.getElementById('root')
     )
@@ -24,8 +30,8 @@ if (isClient) {
 
 function renderComponentWithRoot(Component, componentProps, store) {
     const componentHtml = renderToStaticMarkup(
-        <Provider store={store}>
-            <Component {...componentProps} />
+        <Provider store={ store }>
+            <Component { ...componentProps } />
         </Provider>
     )
 
@@ -33,7 +39,7 @@ function renderComponentWithRoot(Component, componentProps, store) {
     const initialState = store.getState()
 
     return '<!doctype html>\n' + renderToStaticMarkup(
-        <Root content={componentHtml} initialState={initialState} head={head} />
+        <Root content={ componentHtml } initialState={ initialState } head={ head } />
     )
 }
 

@@ -1,4 +1,5 @@
 export default {
+    gaID: 'UA-46475214-2',
     apiHost: 'http://localhost:3000',
     siteContent: {
         description: 'Ramon James is an illustrator, writer, programmer, and one-time/sometime-lawyer from a small town on the east coast of Australia.',
